@@ -1,3 +1,25 @@
+// cc_librarytemplate.h - v0.1.0 - public domain Levent Kaya 2024
+// (librarytemplate) library.
+//
+// This file provides both the interface and the implementation.
+// To instantiate the implementation,
+//      #define CC_librarytemplate_IMPLEMENTATION
+// in *ONE* source file, before #including this file.
+//
+//
+// History:
+//  - 0.1.0 First public release
+//
+// Status:
+//  Missing core functionalities.
+//
+// Contributors:
+//  @lvntky
+//
+// LICENSE
+//
+//   See end of file for license information.
+
 #ifndef TEMPLATE_H__
 #  define TEMPLATE_H__
 
@@ -80,3 +102,6 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ------------------------------------------------------------------------------
 */
+
+// TODO:
+// I should make a yasnippet out of this

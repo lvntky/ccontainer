@@ -3,7 +3,7 @@
 //
 // This file provides both the interface and the implementation.
 // To instantiate the implementation,
-//      #define STB_C_LEXER_IMPLEMENTATION
+//      #define CC_VECTOR_IMPLEMENTATION
 // in *ONE* source file, before #including this file.
 //
 //
