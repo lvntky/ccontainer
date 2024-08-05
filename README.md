@@ -1,5 +1,9 @@
 # CContainer
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b38128bf0876489a91f2a8c420866aca)](https://app.codacy.com/gh/lvntky/ccontainer/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+![Codecov](https://img.shields.io/codecov/c/gh/lvntky/ccontainer)
+![GitHub branch check runs](https://img.shields.io/github/check-runs/lvntky/ccontainer/master)
+
 CContainer is a comprehensive STB style header-only library of data structures implemented in C. This library provides a variety of container types that are essential for managing collections of data in C programs. Each container is designed to be efficient, easy to use, and flexible, making CContainer a valuable tool for C developers.
 Features
 
