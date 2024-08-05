@@ -1,7 +1,87 @@
 /**
- * @page about About
- * @section about-doxygen Doxygen documentation
- * This page is auto generated using
- * <a href="https://www.doxygen.nl/">Doxygen</a>, making use of some useful
- * <a href="https://www.doxygen.nl/manual/commands.html">special commands</a>.
+ * \page about About CContainer
+ *
+ * \section intro Introduction
+ *
+ * CContainer is a versatile and comprehensive header-only library designed to provide efficient and flexible data structures for C programming. Modeled after the STB libraries, CContainer aims to offer a wide range of container types, each optimized for different use cases. Whether you're developing performance-critical applications or need robust data management tools, CContainer provides the necessary building blocks.
+ *
+ * \section features Features
+ *
+ * \subsection dynamic_array Dynamic Array (Vector)
+ * The Dynamic Array, or Vector, offers dynamic resizing and efficient random access. It supports operations such as initialization, insertion, deletion, resizing, and cleanup, making it ideal for scenarios where the size of the data collection changes frequently.
+ *
+ * \subsection linked_list Linked List
+ * The Linked List provides efficient insertions and deletions at both ends, along with sequential access. It is designed to handle data collections where the number of elements changes dynamically, but direct access to elements is not required.
+ *
+ * \subsection doubly_linked_list Doubly Linked List
+ * This structure extends the Linked List by allowing bidirectional traversal, which can be advantageous for certain algorithms and data manipulation tasks. It maintains dynamic sizing with efficient operations at both ends.
+ *
+ * \subsection stack Stack
+ * Implemented as a Last In, First Out (LIFO) container, the Stack is useful for scenarios such as function call management, expression evaluation, and undo mechanisms. It supports operations including push, pop, and peek.
+ *
+ * \subsection queue Queue
+ * The Queue follows a First In, First Out (FIFO) principle, making it suitable for task scheduling, buffering, and other scenarios where elements need to be processed in the order they arrive. Operations include enqueue, dequeue, and peek.
+ *
+ * \subsection hash_map Hash Map
+ * A Hash Map provides efficient key-value pair storage with fast lookups, insertions, and deletions. It is ideal for scenarios requiring quick access to data based on unique keys.
+ *
+ * \subsection set Set
+ * The Set data structure ensures unique element storage and supports efficient membership testing, insertion, and deletion. It is useful for handling collections of unique items and performing set operations.
+ *
+ * \subsection bst Binary Search Tree (BST)
+ * The BST maintains elements in a sorted order, allowing for efficient insertion, deletion, and search operations. It is particularly useful for implementing dynamic sets and associative arrays.
+ *
+ * \subsection rb_tree Red-Black Tree
+ * This self-balancing BST variant ensures that the tree remains approximately balanced, providing consistent performance for insertions, deletions, and lookups.
+ *
+ * \subsection heap Heap (Priority Queue)
+ * Heaps are designed for efficient retrieval of the maximum or minimum element, supporting both max-heap and min-heap configurations. They are commonly used in algorithms such as heapsort and priority scheduling.
+ *
+ * \subsection graph Graph
+ * The Graph structure supports nodes and edges, with options for directed and undirected graphs. It is suitable for representing and manipulating complex networks and relationships.
+ *
+ * \subsection trie Trie (Prefix Tree)
+ * The Trie is a specialized tree structure optimized for prefix-based search, making it ideal for applications like autocomplete and dictionary implementations.
+ *
+ * \subsection bloom_filter Bloom Filter
+ * A Bloom Filter is a probabilistic data structure used for membership testing. It offers space-efficient representation and is used in applications where a small probability of false positives is acceptable.
+ *
+ * \subsection b_tree B-Tree
+ * The B-Tree is a self-balancing tree data structure designed for efficient disk storage operations. It is widely used in databases and filesystems for its balanced performance characteristics.
+ *
+ * \section usage Usage Examples
+ *
+ * Here are a few examples of how to use some of the data structures provided by CContainer:
+ *
+ * \subsection vector_example Vector Example
+ * \code
+ * Vector *vec = vector_create(10);
+ * int *value = malloc(sizeof(int));
+ * *value = 42;
+ * vector_push_back(vec, value);
+ * int *retrieved = (int *)vector_get(vec, 0);
+ * printf("Value: %d\n", *retrieved);
+ * vector_destroy(vec);
+ * \endcode
+ *
+ * \subsection hash_map_example Hash Map Example
+ * \code
+ * HashMap *map = hashmap_create();
+ * hashmap_insert(map, "key1", "value1");
+ * char *value = (char *)hashmap_get(map, "key1");
+ * printf("Value: %s\n", value);
+ * hashmap_destroy(map);
+ * \endcode
+ *
+ * \section build Building and Installing
+ *
+ * For detailed instructions on building and installing the CContainer library, refer to the [BUILDING](BUILDING.md) document. It provides step-by-step guidance for setting up the library in your development environment.
+ *
+ * \section contribute Contributing
+ *
+ * Contributions to CContainer are welcome! Please refer to the [CONTRIBUTING](CONTRIBUTING.md) document for guidelines on how to contribute to the project, including code standards, submission processes, and issue tracking.
+ *
+ * \section license Licensing
+ *
+ * CContainer is available under two licensing options. You can choose the license that best fits your needs. For more information, see the [LICENSE](LICENSE) document.
  */
