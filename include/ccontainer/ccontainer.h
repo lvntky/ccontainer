@@ -7,17 +7,17 @@ extern "C" {
 /**
  * @brief Reports the name of the library
  */
-char const* header_only_name(void);
+char const *header_only_name(void);
 
 #ifdef CCONTAINER_IMPLEMENTATION
 
-char const* header_only_name(void)
+char const *header_only_name(void)
 {
-  return "ccontainer";
+	return "ccontainer";
 }
 
 #endif
 
 #ifdef __cplusplus
-}  // extern "C"
+} // extern "C"
 #endif

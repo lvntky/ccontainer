@@ -21,11 +21,17 @@
 //   See end of file for license information.
 
 #ifndef CC_VECTOR_H__
-#  define CC_VECTOR_H__
+#define CC_VECTOR_H__
 
-#  ifdef __cplusplus
+// =====================================================================
+//                                Headers
+// =====================================================================
+
+#include <stddef.h> // for size_t
+
+#ifdef __cplusplus
 extern "C" {
-#  endif
+#endif
 
 // =====================================================================
 //                          Configuration Macros
@@ -39,10 +45,23 @@ extern "C" {
 //                          Struct Definitions
 // =====================================================================
 
+typedef struct cc_vector {
+	void **data;
+	size_t size;
+	size_t capacity;
+} cc_vector_t;
+
 // =====================================================================
 //                          Library Function Declarations
 // =====================================================================
 
+/**
+ * @brief create cc_vector
+ *
+ * @param initial_capacity initial capacity of cc_vector
+ * @return cc_vector_t*
+ */
+cc_vector_t *cc_vector_create(size_t initial_capacity);
 // =====================================================================
 //                          Struct Function Declarations
 // =====================================================================
@@ -51,15 +70,15 @@ extern "C" {
 //                        Function Definitions
 // =====================================================================
 
-#  ifdef CC_VECTOR_IMPLEMENTATION
+#ifdef CC_VECTOR_IMPLEMENTATION
 
-#  endif  // MYLIB_IMPLEMENTATION
+#endif // MYLIB_IMPLEMENTATION
 
-#  ifdef __cplusplus
+#ifdef __cplusplus
 }
-#  endif
+#endif
 
-#endif  // CC_VECTOR_H__
+#endif // CC_VECTOR_H__
 
 /*
 ------------------------------------------------------------------------------
