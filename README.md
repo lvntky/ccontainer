@@ -5,7 +5,8 @@
 ![GitHub branch check runs](https://img.shields.io/github/check-runs/lvntky/ccontainer/master)
 
 CContainer is a comprehensive STB style header-only library of data structures implemented in C. This library provides a variety of container types that are essential for managing collections of data in C programs. Each container is designed to be efficient, easy to use, and flexible, making CContainer a valuable tool for C developers.
-Features
+
+## Features
 
 - Dynamic Array (Vector)
     - Dynamic resizing
