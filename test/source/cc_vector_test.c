@@ -15,3 +15,12 @@ UTEST(cc_vector, create)
 	free(vector->data);
 	free(vector);
 }
+
+UTEST(cc_vector, at)
+{
+	cc_vector_t *vector = cc_vector_create(10);
+
+	void *data = cc_vector_at(vector, 0);
+
+	ASSERT_TRUE(data != NULL);
+}

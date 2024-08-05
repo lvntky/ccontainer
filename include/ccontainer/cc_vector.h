@@ -29,7 +29,7 @@
 
 #include <stddef.h> // for size_t
 #include <stdlib.h> // for malloc
-#include <stdio.h>
+#include "ccontainer_utils.h" // for printing stdout etc.
 
 #ifdef __cplusplus
 extern "C" {
@@ -65,10 +65,50 @@ typedef struct cc_vector {
  */
 cc_vector_t *cc_vector_create(size_t initial_capacity);
 
+/**
+ * @brief free cc_vector from memory
+ * 
+ * @param vector cc_vector_t to free
+ */
+void cc_vector_free(cc_vector_t *vector);
+
+/**
+ * @brief get request data at given index (with bound checking)
+ * 
+ * @param vector vector to look for
+ * @param index index to look fot given vector
+ * @return cc_vector_t* 
+ */
+void *cc_vector_at(cc_vector_t *vector, size_t index);
+
+/**
+ * @brief Get first element of the vector
+ * 
+ * @param vector 
+ * @return void* 
+ */
+void *cc_vector_front(cc_vector_t *vector);
+
+/**
+ * @brief get the last element of the vector
+ * 
+ * @param vector 
+ * @return void* 
+ */
+void *cc_vector_back(cc_vector_t *vector);
+
+/**
+ * @brief insert new data to the vector as last element
+ * 
+ * @param vector 
+ * @param data 
+ */
+void cc_vector_push_back(cc_vector_t *vector, void *data);
+
 // =====================================================================
 //                        Function Definitions
 // =====================================================================
-
+#define CC_VECTOR_IMPLEMENTATION
 #ifdef CC_VECTOR_IMPLEMENTATION
 cc_vector_t *cc_vector_create(size_t initial_capacity)
 {
@@ -82,6 +122,41 @@ cc_vector_t *cc_vector_create(size_t initial_capacity)
 	vector->data = (void **)malloc(sizeof(void *) * vector->capacity);
 
 	return vector;
+}
+
+void cc_vector_free(cc_vector_t *vector)
+{
+	for (size_t i = 0; i < vector->size; i++) {
+		free(vector->data[i]);
+	}
+	free(vector);
+}
+
+void *cc_vector_at(cc_vector_t *vector, size_t index)
+{
+	if (index > vector->size) {
+		CCONTAINER_LOG("Index out of bounds");
+		exit(EXIT_FAILURE);
+	}
+	return vector->data[index];
+}
+
+void *cc_vector_front(cc_vector_t *vector)
+{
+	if (vector == NULL) {
+		CCONTAINER_LOG("The vector is uninitialized.");
+		exit(EXIT_FAILURE);
+	}
+	return vector->data[0];
+}
+
+void *cc_vector_back(cc_vector_t *vector)
+{
+	if (vector == NULL) {
+		CCONTAINER_LOG("The vector is uninitialized.");
+		exit(EXIT_FAILURE);
+	}
+	return vector->data[vector->size];
 }
 
 #endif // CC_VECTOR_IMPLEMENTATION
