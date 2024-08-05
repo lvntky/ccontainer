@@ -74,4 +74,4 @@ See the [BUILDING](BUILDING.md) document.
 See the [CONTRIBUTING](CONTRIBUTING.md) document.
 
 ## Licensing
-MIT
+This software is available under 2 [licenses](LICENSE) -- choose whichever you prefer.

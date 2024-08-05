@@ -1,45 +1,3 @@
-#ifndef TEMPLATE_H__
-#  define TEMPLATE_H__
-
-#  ifdef __cplusplus
-extern "C" {
-#  endif
-
-// =====================================================================
-//                          Configuration Macros
-// =====================================================================
-
-// =====================================================================
-//                          Utility Macros
-// =====================================================================
-
-// =====================================================================
-//                          Struct Definitions
-// =====================================================================
-
-// =====================================================================
-//                          Library Function Declarations
-// =====================================================================
-
-// =====================================================================
-//                          Struct Function Declarations
-// =====================================================================
-
-// =====================================================================
-//                        Function Definitions
-// =====================================================================
-
-#  ifdef MYLIB_IMPLEMENTATION
-
-#  endif  // MYLIB_IMPLEMENTATION
-
-#  ifdef __cplusplus
-}
-#  endif
-
-#endif  // TEMPLATE_H__
-
-/*
 ------------------------------------------------------------------------------
 This software is available under 2 licenses -- choose whichever you prefer.
 ------------------------------------------------------------------------------
@@ -78,5 +36,3 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
 ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-------------------------------------------------------------------------------
-*/
