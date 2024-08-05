@@ -9,7 +9,6 @@ on:
     branches:
     - master
 
-jobs:
   lint:
     runs-on: ubuntu-22.04
 
@@ -29,7 +28,7 @@ jobs:
 
     - name: Spell check
       if: always()
-      run: cmake -P cmake/spell.cmake
+      run: cmake -DFIX=YES -P cmake/spell.cmake
 
   coverage:
     needs: [lint]

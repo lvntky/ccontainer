@@ -76,7 +76,7 @@ void cc_vector_free(cc_vector_t *vector);
  * @brief get request data at given index (with bound checking)
  * 
  * @param vector vector to look for
- * @param index index to look fot given vector
+ * @param index index to look for given vector
  * @return cc_vector_t* 
  */
 void *cc_vector_at(cc_vector_t *vector, size_t index);
