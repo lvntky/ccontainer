@@ -28,6 +28,8 @@
 // =====================================================================
 
 #include <stddef.h> // for size_t
+#include <stdlib.h> // for malloc
+#include <stdio.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -62,17 +64,27 @@ typedef struct cc_vector {
  * @return cc_vector_t*
  */
 cc_vector_t *cc_vector_create(size_t initial_capacity);
-// =====================================================================
-//                          Struct Function Declarations
-// =====================================================================
 
 // =====================================================================
 //                        Function Definitions
 // =====================================================================
 
 #ifdef CC_VECTOR_IMPLEMENTATION
+cc_vector_t *cc_vector_create(size_t initial_capacity)
+{
+	cc_vector_t *vector = (cc_vector_t *)malloc(sizeof(cc_vector_t));
+	if (!vector) {
+		return NULL;
+	}
 
-#endif // MYLIB_IMPLEMENTATION
+	vector->capacity = initial_capacity;
+	vector->size = 0;
+	vector->data = (void **)malloc(sizeof(void *) * vector->capacity);
+
+	return vector;
+}
+
+#endif // CC_VECTOR_IMPLEMENTATION
 
 #ifdef __cplusplus
 }

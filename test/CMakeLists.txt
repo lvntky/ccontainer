@@ -13,15 +13,26 @@ endif()
 
 # ---- Tests ----
 
-add_executable(ccontainer_test source/ccontainer_test.c)
-set_property(
-    SOURCE source/ccontainer_test.c PROPERTY
-    COMPILE_DEFINITIONS CCONTAINER_IMPLEMENTATION
+# Create a list of test sources
+set(TEST_SOURCES
+    source/main_test.c
+    source/cc_vector_test.c
 )
-target_link_libraries(ccontainer_test PRIVATE ccontainer::ccontainer)
-target_compile_features(ccontainer_test PRIVATE c_std_99)
 
-add_test(NAME ccontainer_test COMMAND ccontainer_test)
+# Add the test executable
+add_executable(ccontainer_tests ${TEST_SOURCES})
+
+# Ensure the implementation macro is defined
+target_compile_definitions(ccontainer_tests PRIVATE CC_VECTOR_IMPLEMENTATION)
+
+# Link against the ccontainer library
+target_link_libraries(ccontainer_tests PRIVATE ccontainer::ccontainer)
+
+# Ensure C99 standard
+target_compile_features(ccontainer_tests PRIVATE c_std_99)
+
+# Add the test executable to CTest
+add_test(NAME ccontainer_tests COMMAND ccontainer_tests)
 
 # ---- End-of-file commands ----
 
