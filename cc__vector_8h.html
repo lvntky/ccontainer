@@ -60,6 +60,7 @@
                 <li><a href="#nested-classes">Classes</a></li>
                 <li><a href="#typedef-members">Typedefs</a></li>
                 <li><a href="#func-members">Functions</a></li>
+                <li><a href="#define-members">Defines</a></li>
               </ul>
             </li>
           </ul>
@@ -89,6 +90,41 @@
               <span class="m-doc-wrap-bumper">auto <a href="#ac619aa6dfca51852035f080ed7e30db8" class="m-doc">cc_vector_create</a>(</span><span class="m-doc-wrap">size_t initial_capacity) -&gt; <a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>*</span>
             </dt>
             <dd>create <a href="structcc__vector.html" class="m-doc">cc_<wbr />vector</a></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a22db0929378d9119a564df533d0533db" class="m-doc">cc_vector_free</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector)</span>
+            </dt>
+            <dd>free <a href="structcc__vector.html" class="m-doc">cc_<wbr />vector</a> from memory</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aabbe7a323571422e252a075e947e24eb" class="m-doc">cc_vector_at</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector,
+              size_t index) -&gt; void*</span>
+            </dt>
+            <dd>get request data at given index (with bound checking)</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a585d6b6904f7a386bf86c51f5ff8f548" class="m-doc">cc_vector_front</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector) -&gt; void*</span>
+            </dt>
+            <dd>Get first element of the vector.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a4decb4449f8bf7109e40afbb4dc23fdc" class="m-doc">cc_vector_back</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector) -&gt; void*</span>
+            </dt>
+            <dd>get the last element of the vector</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a2810054467eafd91977df3caaa821b8f" class="m-doc">cc_vector_push_back</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector,
+              void* data)</span>
+            </dt>
+            <dd>insert new data to the vector as last element</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a806e18862e0ea928aab28770ea6211f7" class="m-doc">cc_vector_size</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector) -&gt; size_t</span>
+            </dt>
+            <dd>return the size of elements inside vector</dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="a7225d1399df96a6f6d684d3689efe264">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7225d1399df96a6f6d684d3689efe264" class="m-doc-self">CC_VECTOR_DEFAULT_CAPACITY_INCREASE_SIZE</a></span>
+            </dt>
+            <dd><span></span></dd>
           </dl>
         </section>
         <section>
@@ -112,6 +148,133 @@
                 <tr>
                   <th>Returns</th>
                   <td>cc_vector_t*</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a22db0929378d9119a564df533d0533db"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a22db0929378d9119a564df533d0533db" class="m-doc-self">cc_vector_free</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector)</span></span>
+            </h3>
+            <p>free <a href="structcc__vector.html" class="m-doc">cc_<wbr />vector</a> from memory</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">vector</td>
+                  <td>cc_vector_t to free</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="aabbe7a323571422e252a075e947e24eb"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aabbe7a323571422e252a075e947e24eb" class="m-doc-self">cc_vector_at</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector,
+              size_t index)</span></span>
+            </h3>
+            <p>get request data at given index (with bound checking)</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">vector</td>
+                  <td>vector to look for</td>
+                </tr>
+                <tr>
+                  <td>index</td>
+                  <td>index to look for given vector</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>cc_vector_t*</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a585d6b6904f7a386bf86c51f5ff8f548"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a585d6b6904f7a386bf86c51f5ff8f548" class="m-doc-self">cc_vector_front</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector)</span></span>
+            </h3>
+            <p>Get first element of the vector.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">vector</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>void*</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a4decb4449f8bf7109e40afbb4dc23fdc"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4decb4449f8bf7109e40afbb4dc23fdc" class="m-doc-self">cc_vector_back</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector)</span></span>
+            </h3>
+            <p>get the last element of the vector</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">vector</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>void*</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a2810054467eafd91977df3caaa821b8f"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a2810054467eafd91977df3caaa821b8f" class="m-doc-self">cc_vector_push_back</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector,
+              void* data)</span></span>
+            </h3>
+            <p>insert new data to the vector as last element</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">vector</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>data</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a806e18862e0ea928aab28770ea6211f7"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">size_t </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a806e18862e0ea928aab28770ea6211f7" class="m-doc-self">cc_vector_size</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector)</span></span>
+            </h3>
+            <p>return the size of elements inside vector</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>size_t</td>
                 </tr>
               </tfoot>
             </table>
