@@ -7,7 +7,7 @@
 	do {                                                             \
 		char buffer[256];                                        \
 		snprintf(buffer, sizeof(buffer), format, ##__VA_ARGS__); \
-		fprintf(stderr, "%s\n", buffer);                         \
+		fprintf(stderr, "[CCONTAINER_H ERROR] - %s\n", buffer);  \
 	} while (0)
 
 #endif //CCONTAINER_UTILS_H__

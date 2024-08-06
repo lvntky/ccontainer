@@ -39,6 +39,8 @@ extern "C" {
 //                          Configuration Macros
 // =====================================================================
 
+#define CC_VECTOR_DEFAULT_CAPACITY_INCREASE_SIZE 2
+
 // =====================================================================
 //                          Utility Macros
 // =====================================================================
@@ -105,10 +107,18 @@ void *cc_vector_back(cc_vector_t *vector);
  */
 void cc_vector_push_back(cc_vector_t *vector, void *data);
 
+/**
+ * @brief return the size of elements inside vector
+ * 
+ * @param cc_vector 
+ * @return size_t 
+ */
+size_t cc_vector_size(cc_vector_t *vector);
+
 // =====================================================================
 //                        Function Definitions
 // =====================================================================
-#define CC_VECTOR_IMPLEMENTATION
+
 #ifdef CC_VECTOR_IMPLEMENTATION
 cc_vector_t *cc_vector_create(size_t initial_capacity)
 {
@@ -135,7 +145,8 @@ void cc_vector_free(cc_vector_t *vector)
 void *cc_vector_at(cc_vector_t *vector, size_t index)
 {
 	if (index > vector->size) {
-		CCONTAINER_LOG("Index out of bounds");
+		CCONTAINER_LOG(
+			"Index out of bounds. Terminating program with failing exit status.");
 		exit(EXIT_FAILURE);
 	}
 	return vector->data[index];
@@ -157,6 +168,30 @@ void *cc_vector_back(cc_vector_t *vector)
 		exit(EXIT_FAILURE);
 	}
 	return vector->data[vector->size];
+}
+
+void cc_vector_push_back(cc_vector_t *vector, void *data)
+{
+	if (vector->size == vector->capacity) {
+		// Double the capacity or set it to 1 if it's currently 0
+		vector->capacity = vector->capacity == 0 ? 1 :
+							   vector->capacity * 2;
+		void **new_data = (void **)realloc(
+			vector->data, sizeof(void *) * vector->capacity);
+		if (!new_data) {
+			CCONTAINER_LOG(
+				"Memory allocation has failed for cc_vector_push_back(). Terminating program with failing exit status.");
+			exit(EXIT_FAILURE);
+		}
+		vector->data = new_data;
+	}
+	vector->data[vector->size++] = data;
+}
+
+size_t cc_vector_size(cc_vector_t *vector)
+{
+	//TODO: NULL check might be needed.
+	return vector->size;
 }
 
 #endif // CC_VECTOR_IMPLEMENTATION

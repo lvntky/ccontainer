@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mdkir -p build
+mkdir -p build
 cd build/
 cmake ..
 cd ..
