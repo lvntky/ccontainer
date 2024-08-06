@@ -22,6 +22,7 @@ UTEST(cc_vector, at)
 	void *data = cc_vector_at(vector, 0);
 
 	ASSERT_TRUE(data != NULL);
+	cc_vector_free(vector);
 }
 
 UTEST(cc_vector, push_back)
@@ -30,4 +31,5 @@ UTEST(cc_vector, push_back)
 	cc_vector_push_back(vector, 1);
 
 	ASSERT_EQ(cc_vector_at(vector, 0), 1);
+	cc_vector_free(vector);
 }
