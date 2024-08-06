@@ -74,5 +74,9 @@ See the [BUILDING](BUILDING.md) document.
 
 See the [CONTRIBUTING](CONTRIBUTING.md) document.
 
+## Development Status
+
+You can check and inform development and implementation status of containers from [DEVELOPMENT](DEVELOPMENT.md) document.
+
 ## Licensing
 This software is available under 2 [licenses](LICENSE) -- choose whichever you prefer.
