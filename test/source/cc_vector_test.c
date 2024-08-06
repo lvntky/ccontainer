@@ -28,8 +28,11 @@ UTEST(cc_vector, at)
 UTEST(cc_vector, push_back)
 {
 	cc_vector_t *vector = cc_vector_create(10);
-	cc_vector_push_back(vector, 1);
+	int *value = (int *)malloc(sizeof(int));
+	*value = 1;
+	cc_vector_push_back(vector, value);
 
-	ASSERT_EQ(cc_vector_at(vector, 0), 1);
+	ASSERT_EQ(*(int *)cc_vector_at(vector, 0), 1);
+
 	cc_vector_free(vector);
 }

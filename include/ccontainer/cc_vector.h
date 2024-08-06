@@ -136,10 +136,13 @@ cc_vector_t *cc_vector_create(size_t initial_capacity)
 
 void cc_vector_free(cc_vector_t *vector)
 {
-	for (size_t i = 0; i < vector->size; i++) {
-		free(vector->data[i]);
+	if (vector) {
+		for (size_t i = 0; i < vector->size; i++) {
+			free(vector->data[i]);
+		}
+		free(vector->data);
+		free(vector);
 	}
-	free(vector);
 }
 
 void *cc_vector_at(cc_vector_t *vector, size_t index)
