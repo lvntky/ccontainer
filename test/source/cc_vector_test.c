@@ -19,8 +19,15 @@ UTEST(cc_vector, create)
 UTEST(cc_vector, at)
 {
 	cc_vector_t *vector = cc_vector_create(10);
-
-	void *data = cc_vector_at(vector, 1110);
+	void *data = cc_vector_at(vector, 0);
 
 	ASSERT_TRUE(data != NULL);
+}
+
+UTEST(cc_vector, push_back)
+{
+	cc_vector_t *vector = cc_vector_create(10);
+	cc_vector_push_back(vector, 1);
+
+	ASSERT_EQ(cc_vector_at(vector, 0), 1);
 }
