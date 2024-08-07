@@ -16,18 +16,16 @@ UTEST(cc_vector, create)
 	free(vector);
 }
 
-/*
 UTEST(cc_vector, at)
 {
 	cc_vector_t *vector = cc_vector_create(10);
-	cc_vector_push_back(vector, 1);
+	cc_vector_push_back(vector, (void *)1);
 	void *data = cc_vector_at(vector, 0);
 
 	ASSERT_TRUE(data != NULL);
 	cc_vector_free(vector);
 }
-*/
-/*
+
 UTEST(cc_vector, push_back)
 {
 	cc_vector_t *vector = cc_vector_create(10);
@@ -39,14 +37,24 @@ UTEST(cc_vector, push_back)
 
 	cc_vector_free(vector);
 }
-*/
+
 UTEST(cc_vector, back)
 {
 	cc_vector_t *vector = cc_vector_create(5);
-	int value = 10;
-	cc_vector_push_back(vector, &value);
-	ASSERT_EQ(*(int *)cc_vector_back(vector),
-		  10); // Dereference the pointer
+
+	cc_vector_push_back(vector, (void *)5);
+	ASSERT_EQ(cc_vector_back(vector),
+		  (void *)5); // Dereference the pointer
+
+	cc_vector_free(vector);
+}
+
+UTEST(cc_vector, front)
+{
+	cc_vector_t *vector = cc_vector_create(1);
+	cc_vector_push_back(vector, (void *)5);
+
+	ASSERT_EQ(cc_vector_front(vector), (void *)5);
 
 	cc_vector_free(vector);
 }
