@@ -40,6 +40,8 @@ extern "C" {
 // =====================================================================
 
 #define CC_VECTOR_DEFAULT_CAPACITY_INCREASE_SIZE 2
+#define CC_VECTOR_MAX_SIZE 4096
+#define CC_VECTOR_DEFAULT_CAPACITY 1
 
 // =====================================================================
 //                          Utility Macros
@@ -152,6 +154,7 @@ void cc_vector_clear(cc_vector_t *vector);
  * @param pos 
  */
 void cc_vector_erase(cc_vector_t *vector, size_t pos);
+
 // =====================================================================
 //                        Function Definitions
 // =====================================================================
@@ -162,6 +165,13 @@ cc_vector_t *cc_vector_create(size_t initial_capacity)
 	cc_vector_t *vector = (cc_vector_t *)malloc(sizeof(cc_vector_t));
 	if (!vector) {
 		return NULL;
+	}
+
+	size_t capacity;
+	if (initial_capacity == NULL) {
+		capacity = CC_VECTOR_DEFAULT_CAPACITY;
+	} else {
+		capacity = initial_capacity;
 	}
 
 	vector->capacity = initial_capacity;
@@ -229,6 +239,60 @@ size_t cc_vector_size(cc_vector_t *vector)
 {
 	//TODO: NULL check might be needed.
 	return vector->size;
+}
+
+const size_t cc_vector_maxsize()
+{
+	//TODO: needs cheks
+	return CC_VECTOR_MAX_SIZE;
+}
+
+size_t cc_vector_capacity(cc_vector_t *vector)
+{
+	return vector->capacity;
+}
+
+void cc_vector_clear(cc_vector_t *vector)
+{
+	cc_vector_free(vector);
+
+	// and re-initialize for reuse
+	vector = cc_vector_create(NULL);
+}
+
+// Works at O(n), can we make it more efficient ?
+void cc_vector_erase(cc_vector_t *vector, size_t pos)
+{
+	if (vector == NULL || pos >= vector->size) {
+		CCONTAINER_LOG("Invalid position for cc_vector_erase.");
+		exit(EXIT_FAILURE);
+	}
+
+	for (size_t i = pos; i < vector->size - 1; ++i) {
+		vector->data[i] = vector->data[i + 1];
+	}
+
+	vector->size--;
+}
+
+void cc_vector_shrink_to_fit(cc_vector_t *vector)
+{
+	if (vector == NULL) {
+		CCONTAINER_LOG("The vector is uninitialized.");
+		exit(EXIT_FAILURE);
+	}
+
+	if (vector->size < vector->capacity) {
+		void **new_data = (void **)realloc(
+			vector->data, sizeof(void *) * vector->size);
+		if (!new_data) {
+			CCONTAINER_LOG(
+				"Memory allocation has failed for cc_vector_shrink_to_fit(). Terminating program with failing exit status.");
+			exit(EXIT_FAILURE);
+		}
+		vector->data = new_data;
+		vector->capacity = vector->size;
+	}
 }
 
 #endif // CC_VECTOR_IMPLEMENTATION
