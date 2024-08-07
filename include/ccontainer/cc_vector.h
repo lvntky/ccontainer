@@ -168,7 +168,7 @@ cc_vector_t *cc_vector_create(size_t initial_capacity)
 	}
 
 	size_t capacity;
-	if (initial_capacity == NULL) {
+	if (initial_capacity <= 0) {
 		capacity = CC_VECTOR_DEFAULT_CAPACITY;
 	} else {
 		capacity = initial_capacity;
@@ -257,7 +257,7 @@ void cc_vector_clear(cc_vector_t *vector)
 	cc_vector_free(vector);
 
 	// and re-initialize for reuse
-	vector = cc_vector_create(NULL);
+	vector = cc_vector_create(0);
 }
 
 // Works at O(n), can we make it more efficient ?
