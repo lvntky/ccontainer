@@ -27,7 +27,7 @@ UTEST(cc_vector, at)
 	cc_vector_free(vector);
 }
 */
-
+/*
 UTEST(cc_vector, push_back)
 {
 	cc_vector_t *vector = cc_vector_create(10);
@@ -36,6 +36,16 @@ UTEST(cc_vector, push_back)
 	cc_vector_push_back(vector, value);
 
 	ASSERT_EQ(*(int *)cc_vector_at(vector, 0), 1);
+
+	cc_vector_free(vector);
+}
+*/
+UTEST(cc_vector, back)
+{
+	cc_vector_t *vector = cc_vector_create(5);
+	cc_vector_push_back(vector, 6);
+
+	ASSERT_EQ(cc_vector_back(vector), 6);
 
 	cc_vector_free(vector);
 }

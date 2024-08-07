@@ -115,6 +115,43 @@ void cc_vector_push_back(cc_vector_t *vector, void *data);
  */
 size_t cc_vector_size(cc_vector_t *vector);
 
+/**
+ * @brief Returns the maximum number of elements the container is 
+ * able to hold due to system or library implementation limitations
+ * 
+ * @return const size_t 
+ */
+const size_t cc_vector_maxsize();
+
+/**
+ * @brief Requests the removal of unused capacity. 
+ * 
+ * @param vector 
+ */
+void cc_vector_shrint_to_fix(cc_vector_t *vector);
+
+/**
+ * @brief Returns the number of elements that the container has currently allocated space for. 
+ * 
+ * @param vector 
+ * @return size_t 
+ */
+size_t cc_vector_capacity(cc_vector_t *vector);
+
+/**
+ * @brief Clears the entire vector
+ * 
+ * @param vector 
+ */
+void cc_vector_clear(cc_vector_t *vector);
+
+/**
+ * @brief Erase the element at position
+ * 
+ * @param vector 
+ * @param pos 
+ */
+void cc_vector_erase(cc_vector_t *vector, size_t pos);
 // =====================================================================
 //                        Function Definitions
 // =====================================================================
@@ -137,9 +174,6 @@ cc_vector_t *cc_vector_create(size_t initial_capacity)
 void cc_vector_free(cc_vector_t *vector)
 {
 	if (vector) {
-		for (size_t i = 0; i < vector->size; i++) {
-			free(vector->data[i]);
-		}
 		free(vector->data);
 		free(vector);
 	}
@@ -170,7 +204,7 @@ void *cc_vector_back(cc_vector_t *vector)
 		CCONTAINER_LOG("The vector is uninitialized.");
 		exit(EXIT_FAILURE);
 	}
-	return vector->data[vector->size];
+	return vector->data[vector->size - 1];
 }
 
 void cc_vector_push_back(cc_vector_t *vector, void *data)
