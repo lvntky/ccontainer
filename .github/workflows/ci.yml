@@ -111,6 +111,11 @@ jobs:
       with:
         submodules: 'true'
 
+    - name: Download utest.h
+      run: |
+        curl -o test/source/utest.h https://raw.githubusercontent.com/sheredom/utest.h/master/utest.h
+
+
     - name: Install static analyzers
       if: matrix.os == 'ubuntu-22.04'
       run: >-
