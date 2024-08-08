@@ -11,16 +11,6 @@ if(PROJECT_IS_TOP_LEVEL)
   enable_testing()
 endif()
 
-# ---- Download utest.h ----
-
-set(UTEST_HEADER_URL "https://raw.githubusercontent.com/sheredom/utest.h/master/utest.h")
-set(UTEST_HEADER_PATH "${CMAKE_BINARY_DIR}/utest.h")
-
-if(NOT EXISTS ${UTEST_HEADER_PATH})
-  message(STATUS "Downloading utest.h...")
-  file(DOWNLOAD ${UTEST_HEADER_URL} ${UTEST_HEADER_PATH})
-endif()
-
 # ---- Tests ----
 
 # Create a list of test sources
