@@ -11,6 +11,16 @@ if(PROJECT_IS_TOP_LEVEL)
   enable_testing()
 endif()
 
+# ---- Download utest.h ----
+
+set(UTEST_HEADER_URL "https://raw.githubusercontent.com/sheredom/utest.h/master/utest.h")
+set(UTEST_HEADER_PATH "${CMAKE_BINARY_DIR}/utest.h")
+
+if(NOT EXISTS ${UTEST_HEADER_PATH})
+  message(STATUS "Downloading utest.h...")
+  file(DOWNLOAD ${UTEST_HEADER_URL} ${UTEST_HEADER_PATH})
+endif()
+
 # ---- Tests ----
 
 # Create a list of test sources
@@ -24,6 +34,9 @@ add_executable(ccontainer_tests ${TEST_SOURCES})
 
 # Ensure the implementation macro is defined
 target_compile_definitions(ccontainer_tests PRIVATE CC_VECTOR_IMPLEMENTATION)
+
+# Include the downloaded utest.h
+target_include_directories(ccontainer_tests PRIVATE ${CMAKE_BINARY_DIR})
 
 # Link against the ccontainer library
 target_link_libraries(ccontainer_tests PRIVATE ccontainer::ccontainer)

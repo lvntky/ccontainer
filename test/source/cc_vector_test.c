@@ -1,6 +1,6 @@
 #define CC_VECTOR_IMPLEMENTATIONs
 #include "../../include/ccontainer/cc_vector.h"
-#include "utest.h"
+#include "../build/utest.h"
 
 UTEST(cc_vector, create)
 {

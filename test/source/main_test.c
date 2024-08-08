@@ -1,3 +1,3 @@
-#include "utest.h"
+#include "../build/utest.h"
 
 UTEST_MAIN()
