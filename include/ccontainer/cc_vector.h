@@ -295,6 +295,26 @@ void cc_vector_shrink_to_fit(cc_vector_t *vector)
 	}
 }
 
+void cc_vector_shrink_to_fit(cc_vector_t *vector)
+{
+	if (vector == NULL) {
+		CCONTAINER_LOG("The vector is uninitialized.");
+		exit(EXIT_FAILURE);
+	}
+
+	if (vector->size < vector->capacity) {
+		void **new_data = (void **)realloc(
+			vector->data, sizeof(void *) * vector->size);
+		if (!new_data) {
+			CCONTAINER_LOG(
+				"Memory allocation has failed for cc_vector_shrink_to_fit(). Terminating program with failing exit status.");
+			exit(EXIT_FAILURE);
+		}
+		vector->data = new_data;
+		vector->capacity = vector->size;
+	}
+}
+
 #endif // CC_VECTOR_IMPLEMENTATION
 
 #ifdef __cplusplus
