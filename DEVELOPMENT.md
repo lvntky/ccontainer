@@ -2,7 +2,7 @@
 
 | Container          | Version | Status                |
 |--------------------|---------|-----------------------|
-| Vector             | 0.1.0   | Partially Implemented |
+| Vector             | 0.1.0   | Mostly Implemented    |
 | Linked List        | 0.1.0   | Not Implemented       |
 | Doubly Linked List | 0.1.0   | Not Implemented       |
 | Stack              | 0.1.0   | Not Implemented       |
@@ -16,3 +16,10 @@
 | Trie               | 0.1.0   | Not Implemented       |
 | Bloom Filter       | 0.1.0   | Not Implemented       |
 | B-Tree             | 0.1.0   | Not Implemented       |
+
+## Development Status Referance
+
+- 0: Not Implemented
+- 1: Partially Implemented
+- 2: Mostly Implemented
+- 3: Implemented 
