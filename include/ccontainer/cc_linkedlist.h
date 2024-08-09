@@ -33,7 +33,7 @@ extern "C" {
 
 #include <stddef.h> // for size_t
 #include <stdlib.h> // for malloc
-#include "ccontainer_utils.h" // for printing stdout etc.
+#include <string.h>
 
 // =====================================================================
 //                          Configuration Macros
@@ -43,23 +43,79 @@ extern "C" {
 //                          Utility Macros
 // =====================================================================
 
+#define CC_LINKEDLIST_LOG(format, ...)                                     \
+	do {                                                               \
+		char buffer[256];                                          \
+		snprintf(buffer, sizeof(buffer), format, ##__VA_ARGS__);   \
+		fprintf(stderr, "[CC_LINKEDLIST_H ERROR] - %s\n", buffer); \
+	} while (0)
+
 // =====================================================================
 //                          Struct Definitions
 // =====================================================================
+
+typedef struct cc_linkedlist_node {
+	void *data;
+	cc_linkedlist_node_t *next;
+} cc_linkedlist_node_t;
 
 // =====================================================================
 //                          Library Function Declarations
 // =====================================================================
 
-// =====================================================================
-//                          Struct Function Declarations
-// =====================================================================
+/**
+ * @brief create single node for linked list
+ * 
+ * @param data to push to the linked list
+ * @param data_size size of the data for allocating memory for it
+ * @return cc_linkedlist_node_t* 
+ */
+cc_linkedlist_node_t *cc_linkedlist_create_node(void *data, size_t data_size);
+
+/**
+ * @brief gets the current size of linked list
+ * 
+ * @param head to point specified linked list
+ * @return size_t number of nodes
+ */
+size_t cc_linkedlist_size(cc_linkedlist_node_t *head);
 
 // =====================================================================
 //                        Function Definitions
 // =====================================================================
 
 #ifdef CC_LINKEDLIST_IMPLEMENTATION
+cc_linkedlist_node_t *cc_linkedlist_create_node(void *data, size_t data_size)
+
+{
+	cc_linkedlist_node_t *new_node =
+		(cc_linkedlist_node_t *)malloc(sizeof(cc_linkedlist_node_t));
+
+	new_node->data = malloc(data_size);
+	new_node->next = NULL;
+
+	memcpy(new_node->data, data, data_size);
+
+	if (new_node == NULL || new_node->data == NULL) {
+		CC_LINKEDLIST_LOG(
+			"An error occured while creating node. Terminating program with failing exit status.");
+		exit(EXIT_FAILURE);
+	}
+
+	return new_node;
+}
+
+//TODO: Can we implement more faste solution then O(n) ?
+size_t cc_linkedlist_size(cc_linkedlist_node_t *head)
+{
+	size_t counter = 0;
+
+	while (head != NULL) {
+		counter++;
+	}
+
+	return counter;
+}
 
 #endif // CC_LINKEDLIST_IMPLEMENTATION
 

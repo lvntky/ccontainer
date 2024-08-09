@@ -47,12 +47,12 @@ extern "C" {
 //                          Utility Macros
 // =====================================================================
 
-#define CCONTAINER_LOG(format, ...)                                     \
-    do {                                                                \
-        char buffer[256];                                               \
-        snprintf(buffer, sizeof(buffer), format, ##__VA_ARGS__);        \
-        fprintf(stderr, "[CCONTAINER_H ERROR] - %s\n", buffer);         \
-    } while (0)
+#define CC_VECTOR_LOG(format, ...)                                       \
+	do {                                                             \
+		char buffer[256];                                        \
+		snprintf(buffer, sizeof(buffer), format, ##__VA_ARGS__); \
+		fprintf(stderr, "[CC_VECTOR_H ERROR] - %s\n", buffer);   \
+	} while (0)
 
 // =====================================================================
 //                          Struct Definitions
@@ -199,7 +199,7 @@ void cc_vector_free(cc_vector_t *vector)
 void *cc_vector_at(cc_vector_t *vector, size_t index)
 {
 	if (index > vector->size) {
-		CCONTAINER_LOG(
+		CC_VECTOR_LOG(
 			"Index out of bounds. Terminating program with failing exit status.");
 		exit(EXIT_FAILURE);
 	}
@@ -209,7 +209,7 @@ void *cc_vector_at(cc_vector_t *vector, size_t index)
 void *cc_vector_front(cc_vector_t *vector)
 {
 	if (vector == NULL) {
-		CCONTAINER_LOG("The vector is uninitialized.");
+		CC_VECTOR_LOG("The vector is uninitialized.");
 		exit(EXIT_FAILURE);
 	}
 	return vector->data[0];
@@ -218,7 +218,7 @@ void *cc_vector_front(cc_vector_t *vector)
 void *cc_vector_back(cc_vector_t *vector)
 {
 	if (vector == NULL) {
-		CCONTAINER_LOG("The vector is uninitialized.");
+		CC_VECTOR_LOG("The vector is uninitialized.");
 		exit(EXIT_FAILURE);
 	}
 	return vector->data[vector->size - 1];
@@ -233,7 +233,7 @@ void cc_vector_push_back(cc_vector_t *vector, void *data)
 		void **new_data = (void **)realloc(
 			vector->data, sizeof(void *) * vector->capacity);
 		if (!new_data) {
-			CCONTAINER_LOG(
+			CC_VECTOR_LOG(
 				"Memory allocation has failed for cc_vector_push_back(). Terminating program with failing exit status.");
 			exit(EXIT_FAILURE);
 		}
@@ -271,7 +271,7 @@ void cc_vector_clear(cc_vector_t *vector)
 void cc_vector_erase(cc_vector_t *vector, size_t pos)
 {
 	if (vector == NULL || pos >= vector->size) {
-		CCONTAINER_LOG("Invalid position for cc_vector_erase.");
+		CC_VECTOR_LOG("Invalid position for cc_vector_erase.");
 		exit(EXIT_FAILURE);
 	}
 
@@ -285,7 +285,7 @@ void cc_vector_erase(cc_vector_t *vector, size_t pos)
 void cc_vector_shrint_to_fix(cc_vector_t *vector)
 {
 	if (vector == NULL) {
-		CCONTAINER_LOG("The vector is uninitialized.");
+		CC_VECTOR_LOG("The vector is uninitialized.");
 		exit(EXIT_FAILURE);
 	}
 
@@ -293,7 +293,7 @@ void cc_vector_shrint_to_fix(cc_vector_t *vector)
 		void **new_data = (void **)realloc(
 			vector->data, sizeof(void *) * vector->size);
 		if (!new_data) {
-			CCONTAINER_LOG(
+			CC_VECTOR_LOG(
 				"Memory allocation has failed for cc_vector_shrink_to_fit(). Terminating program with failing exit status.");
 			exit(EXIT_FAILURE);
 		}
@@ -305,7 +305,7 @@ void cc_vector_shrint_to_fix(cc_vector_t *vector)
 void cc_vector_shrink_to_fit(cc_vector_t *vector)
 {
 	if (vector == NULL) {
-		CCONTAINER_LOG("The vector is uninitialized.");
+		CC_VECTOR_LOG("The vector is uninitialized.");
 		exit(EXIT_FAILURE);
 	}
 
@@ -313,7 +313,7 @@ void cc_vector_shrink_to_fit(cc_vector_t *vector)
 		void **new_data = (void **)realloc(
 			vector->data, sizeof(void *) * vector->size);
 		if (!new_data) {
-			CCONTAINER_LOG(
+			CC_VECTOR_LOG(
 				"Memory allocation has failed for cc_vector_shrink_to_fit(). Terminating program with failing exit status.");
 			exit(EXIT_FAILURE);
 		}
