@@ -275,7 +275,7 @@ void cc_vector_erase(cc_vector_t *vector, size_t pos)
 	vector->size--;
 }
 
-void cc_vector_shrink_to_fit(cc_vector_t *vector)
+void cc_vector_shrint_to_fix(cc_vector_t *vector)
 {
 	if (vector == NULL) {
 		CCONTAINER_LOG("The vector is uninitialized.");

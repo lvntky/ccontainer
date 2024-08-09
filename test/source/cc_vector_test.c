@@ -58,3 +58,37 @@ UTEST(cc_vector, front)
 
 	cc_vector_free(vector);
 }
+
+UTEST(cc_vector, type_struct)
+{
+	cc_vector_t *vector = cc_vector_create(5);
+
+	typedef struct test_str {
+		int key;
+		char *value;
+	} test_str_t;
+
+	test_str_t test1 = { 1, "abc" };
+	test_str_t test2 = { 2, "def" };
+	test_str_t test3 = { 3, "ghi" };
+
+	cc_vector_push_back(vector, &test1);
+	cc_vector_push_back(vector, &test2);
+	cc_vector_push_back(vector, &test3);
+
+	ASSERT_EQ(3, cc_vector_size(vector));
+
+	test_str_t *retrieved_test1 = (test_str_t *)cc_vector_at(vector, 0);
+	ASSERT_EQ(1, retrieved_test1->key);
+	ASSERT_STREQ("abc", retrieved_test1->value);
+
+	test_str_t *retrieved_test2 = (test_str_t *)cc_vector_at(vector, 1);
+	ASSERT_EQ(2, retrieved_test2->key);
+	ASSERT_STREQ("def", retrieved_test2->value);
+
+	test_str_t *retrieved_test3 = (test_str_t *)cc_vector_at(vector, 2);
+	ASSERT_EQ(3, retrieved_test3->key);
+	ASSERT_STREQ("ghi", retrieved_test3->value);
+
+	cc_vector_free(vector);
+}
