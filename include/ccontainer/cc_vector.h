@@ -30,7 +30,6 @@
 
 #include <stddef.h> // for size_t
 #include <stdlib.h> // for malloc
-#include "ccontainer_utils.h" // for printing stdout etc.
 
 #ifdef __cplusplus
 extern "C" {
@@ -47,6 +46,13 @@ extern "C" {
 // =====================================================================
 //                          Utility Macros
 // =====================================================================
+
+#define CCONTAINER_LOG(format, ...)                                     \
+    do {                                                                \
+        char buffer[256];                                               \
+        snprintf(buffer, sizeof(buffer), format, ##__VA_ARGS__);        \
+        fprintf(stderr, "[CCONTAINER_H ERROR] - %s\n", buffer);         \
+    } while (0)
 
 // =====================================================================
 //                          Struct Definitions
@@ -72,87 +78,87 @@ cc_vector_t *cc_vector_create(size_t initial_capacity);
 
 /**
  * @brief free cc_vector from memory
- * 
+ *
  * @param vector cc_vector_t to free
  */
 void cc_vector_free(cc_vector_t *vector);
 
 /**
  * @brief get request data at given index (with bound checking)
- * 
+ *
  * @param vector vector to look for
  * @param index index to look for given vector
- * @return cc_vector_t* 
+ * @return cc_vector_t*
  */
 void *cc_vector_at(cc_vector_t *vector, size_t index);
 
 /**
  * @brief Get first element of the vector
- * 
- * @param vector 
- * @return void* 
+ *
+ * @param vector
+ * @return void*
  */
 void *cc_vector_front(cc_vector_t *vector);
 
 /**
  * @brief get the last element of the vector
- * 
- * @param vector 
- * @return void* 
+ *
+ * @param vector
+ * @return void*
  */
 void *cc_vector_back(cc_vector_t *vector);
 
 /**
  * @brief insert new data to the vector as last element
- * 
- * @param vector 
- * @param data 
+ *
+ * @param vector
+ * @param data
  */
 void cc_vector_push_back(cc_vector_t *vector, void *data);
 
 /**
  * @brief return the size of elements inside vector
- * 
- * @param cc_vector 
- * @return size_t 
+ *
+ * @param cc_vector
+ * @return size_t
  */
 size_t cc_vector_size(cc_vector_t *vector);
 
 /**
- * @brief Returns the maximum number of elements the container is 
+ * @brief Returns the maximum number of elements the container is
  * able to hold due to system or library implementation limitations
- * 
- * @return const size_t 
+ *
+ * @return const size_t
  */
 size_t cc_vector_maxsize();
 
 /**
- * @brief Requests the removal of unused capacity. 
- * 
- * @param vector 
+ * @brief Requests the removal of unused capacity.
+ *
+ * @param vector
  */
 void cc_vector_shrint_to_fix(cc_vector_t *vector);
 
 /**
- * @brief Returns the number of elements that the container has currently allocated space for. 
- * 
- * @param vector 
- * @return size_t 
+ * @brief Returns the number of elements that the container has currently allocated space for.
+ *
+ * @param vector
+ * @return size_t
  */
 size_t cc_vector_capacity(cc_vector_t *vector);
 
 /**
  * @brief Clears the entire vector
- * 
- * @param vector 
+ *
+ * @param vector
  */
 void cc_vector_clear(cc_vector_t *vector);
 
 /**
  * @brief Erase the element at position
- * 
- * @param vector 
- * @param pos 
+ *
+ * @param vector
+ * @param pos
  */
 void cc_vector_erase(cc_vector_t *vector, size_t pos);
 
