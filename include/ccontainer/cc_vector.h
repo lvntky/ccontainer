@@ -30,6 +30,7 @@
 
 #include <stddef.h> // for size_t
 #include <stdlib.h> // for malloc
+#include <stdio.h> // for snprintf
 
 #ifdef __cplusplus
 extern "C" {

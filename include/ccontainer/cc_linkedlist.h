@@ -33,7 +33,8 @@ extern "C" {
 
 #include <stddef.h> // for size_t
 #include <stdlib.h> // for malloc
-#include <string.h>
+#include <string.h> // for memcpy
+#include <stdio.h> // for snprintf
 
 // =====================================================================
 //                          Configuration Macros
@@ -56,7 +57,7 @@ extern "C" {
 
 typedef struct cc_linkedlist_node {
 	void *data;
-	cc_linkedlist_node_t *next;
+	struct cc_linkedlist_node_t *next;
 } cc_linkedlist_node_t;
 
 // =====================================================================
@@ -112,6 +113,7 @@ size_t cc_linkedlist_size(cc_linkedlist_node_t *head)
 
 	while (head != NULL) {
 		counter++;
+		head = head->next;
 	}
 
 	return counter;

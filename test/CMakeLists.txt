@@ -17,6 +17,7 @@ endif()
 set(TEST_SOURCES
     source/main_test.c
     source/cc_vector_test.c
+    source/cc_linkedlist_test.c
 )
 
 # Add the test executable

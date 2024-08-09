@@ -7,7 +7,14 @@ UTEST(cc_linkedlist, create_node)
 	int data = 1;
 	cc_linkedlist_node_t *head =
 		cc_linkedlist_create_node(&data, sizeof(data));
+	ASSERT_EQ(*(int *)head->data, data);
+}
 
-	ASSERT_EQ(head->data, 1);
+UTEST(cc_linkedlist, size)
+{
+	int data = 1;
+	cc_linkedlist_node_t *head =
+		cc_linkedlist_create_node(&data, sizeof(data));
+
 	ASSERT_EQ(cc_linkedlist_size(head), 1);
 }
