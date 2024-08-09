@@ -11,7 +11,8 @@
 //  - 0.1.0 First public release
 //
 // Status:
-//  Missing core functionalities.
+//  Implemented the core functionalities
+// 	More tests required
 //
 // Contributors:
 //  @lvntky
@@ -20,8 +21,8 @@
 //
 //   See end of file for license information.
 
-#ifndef CC_VECTOR_H__
-#define CC_VECTOR_H__
+#ifndef __CC_VECTOR_H__
+#define __CC_VECTOR_H__
 
 // =====================================================================
 //                                Headers

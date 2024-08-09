@@ -1,3 +1,4 @@
+#pragma once
 #ifndef CCONTAINER_UTILS_H__
 #define CCONTAINER_UTILS_H__
 
