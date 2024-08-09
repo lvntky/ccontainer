@@ -11,15 +11,6 @@ project(
 )
 
 
-# Add coverage flags if the build type is Coverage
-if(CMAKE_BUILD_TYPE STREQUAL "Coverage")
-    if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
-        add_compile_options(--coverage)
-        link_libraries(--coverage)
-    endif()
-endif()
-
-
 include(cmake/variables.cmake)
 
 # ---- Declare library ----
