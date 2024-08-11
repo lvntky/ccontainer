@@ -2,7 +2,7 @@
 
 | Container          | Version | Status                |
 |--------------------|---------|-----------------------|
-| Vector             | 0.1.0   | Mostly Implemented    |
+| Vector             | 0.2.0   | Mostly Implemented    |
 | Linked List        | 0.1.0   | Not Implemented       |
 | Doubly Linked List | 0.1.0   | Not Implemented       |
 | Stack              | 0.1.0   | Not Implemented       |
