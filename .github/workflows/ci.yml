@@ -41,7 +41,7 @@ jobs:
       - name: Test
         working-directory: build
         run: |
-          ctest --output-on-failure --no-tests=error -C Release -- -j 2
+          ctest --output-on-failure --no-tests=error -C Release -j 2
 
   docs:
     runs-on: ubuntu-22.04
