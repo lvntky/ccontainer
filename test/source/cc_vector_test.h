@@ -11,7 +11,7 @@
 *               Definitions
 *  ===================================
 */
-void cc_vector_create_test()
+void cc_vector_create_test(void)
 {
 	cc_vector_t *vec = cc_vector_create(1);
 
@@ -19,7 +19,7 @@ void cc_vector_create_test()
 	cc_vector_free(vec);
 }
 
-void cc_vector_at_test()
+void cc_vector_at_test(void)
 {
 	cc_vector_t *vec = cc_vector_create(1);
 	int data = 5;
@@ -31,7 +31,7 @@ void cc_vector_at_test()
 	cc_vector_free(vec);
 }
 
-void cc_vector_size_test()
+void cc_vector_size_test(void)
 {
 	cc_vector_t *vec = cc_vector_create(1);
 	int data1 = 1;
