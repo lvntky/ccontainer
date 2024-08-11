@@ -12,3 +12,4 @@ compile_commands.json
 *.elf
 Testing/
 utest.h
+conan/

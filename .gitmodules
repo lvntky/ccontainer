@@ -1,3 +1,0 @@
-[submodule "test/utest.h"]
-	path = test/utest.h
-	url = git@github.com:sheredom/utest.h.git
