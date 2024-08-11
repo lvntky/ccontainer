@@ -92,16 +92,16 @@ cc_linkedlist_node_t *cc_linkedlist_create_node(void *data, size_t data_size)
 	cc_linkedlist_node_t *new_node =
 		(cc_linkedlist_node_t *)malloc(sizeof(cc_linkedlist_node_t));
 
-	new_node->data = malloc(data_size);
-	new_node->next = NULL;
-
-	memcpy(new_node->data, data, data_size);
-
-	if (new_node == NULL || new_node->data == NULL) {
+	if (new_node == NULL) {
 		CC_LINKEDLIST_LOG(
 			"An error occured while creating node. Terminating program with failing exit status.");
 		exit(EXIT_FAILURE);
 	}
+
+	new_node->data = malloc(data_size);
+	new_node->next = NULL;
+
+	memcpy(new_node->data, data, data_size);
 
 	return new_node;
 }

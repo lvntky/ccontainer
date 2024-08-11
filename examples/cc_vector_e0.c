@@ -8,13 +8,13 @@ int main()
 	for (size_t i = 0; i < 5; i++) {
 		int *value = (int *)malloc(sizeof(int));
 		*value = i;
-		printf("Vector size at insertion-%ld: %ld\n", i,
+		printf("Vector size at insertion-%zu: %zu\n", i,
 		       cc_vector_size(vec));
 		cc_vector_push_back(vec, value);
 	}
 
 	for (size_t j = 0; j < 5; j++) {
-		printf("Data at-%ld: %p\n", j, cc_vector_at(vec, j));
+		printf("Data at-%zu: %p\n", j, cc_vector_at(vec, j));
 	}
 
 	return 0;
