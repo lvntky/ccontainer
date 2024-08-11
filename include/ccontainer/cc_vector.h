@@ -48,11 +48,12 @@ extern "C" {
 //                          Utility Macros
 // =====================================================================
 
-#define CC_VECTOR_LOG(format, ...)                                       \
-	do {                                                             \
-		char buffer[256];                                        \
-		snprintf(buffer, sizeof(buffer), format, ##__VA_ARGS__); \
-		fprintf(stderr, "[CC_VECTOR_H ERROR] - %s\n", buffer);   \
+#define CC_VECTOR_LOG(format, ...)                                         \
+	do {                                                               \
+		char buffer[256];                                          \
+		snprintf(buffer, sizeof(buffer), "%s: " format, "Error",   \
+			 ##__VA_ARGS__);                                   \
+		fprintf(stderr, "[CC_LINKEDLIST_H ERROR] - %s\n", buffer); \
 	} while (0)
 
 // =====================================================================

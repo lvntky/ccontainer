@@ -47,7 +47,8 @@ extern "C" {
 #define CC_LINKEDLIST_LOG(format, ...)                                     \
 	do {                                                               \
 		char buffer[256];                                          \
-		snprintf(buffer, sizeof(buffer), format, ##__VA_ARGS__);   \
+		snprintf(buffer, sizeof(buffer), "%s: " format, "Error",   \
+			 ##__VA_ARGS__);                                   \
 		fprintf(stderr, "[CC_LINKEDLIST_H ERROR] - %s\n", buffer); \
 	} while (0)
 
