@@ -1,6 +1,12 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   test:
@@ -13,8 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update -q
-          sudo apt-get install clang-tidy-14 cppcheck doxygen -y -q
-          sudo update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-14 140
+          sudo apt-get install -y clang-tidy-14 cppcheck doxygen
 
       - name: Download utest.h
         run: |
@@ -22,17 +27,21 @@ jobs:
           curl -o test/source/utest.h https://raw.githubusercontent.com/sheredom/utest.h/master/utest.h
 
       - name: Configure
-        run: cmake --preset=ci-ubuntu
+        run: |
+          cmake -S . -B build -D CMAKE_BUILD_TYPE=Release
 
       - name: Build
-        run: cmake --build build --config Release -j 2
+        run: |
+          cmake --build build --config Release
 
       - name: Install
-        run: cmake --install build --config Release --prefix prefix
+        run: |
+          cmake --install build --config Release
 
       - name: Test
         working-directory: build
-        run: ctest --output-on-failure --no-tests=error -C Release -j 2
+        run: |
+          ctest --output-on-failure --no-tests=error -C Release -- -j 2
 
   docs:
     runs-on: ubuntu-22.04
@@ -43,11 +52,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Doxygen
-        run: sudo apt-get install doxygen -y -q
+        run: sudo apt-get install -y doxygen
 
       - name: Build documentation
         run: |
-          cmake --preset=ci-linux
+          cmake -S . -B build -D CMAKE_BUILD_TYPE=Release
           cmake --build build --target docs
 
       - name: Deploy documentation to branch
