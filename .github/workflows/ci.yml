@@ -41,7 +41,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          cd build/
+          cd test/build/
           ctest --output-on-failure -j 2
           
 
