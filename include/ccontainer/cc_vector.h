@@ -233,7 +233,7 @@ void *cc_vector_at(cc_vector_t *vector, size_t index)
 	if (index > vector->size) {
 		CC_VECTOR_LOG(
 			"Index out of bounds. Terminating program with failing exit status.");
-		return CC_VECTOR_EXIT_FAILURE;
+		exit(CC_VECTOR_EXIT_FAILURE);
 	}
 	return vector->data[index];
 }
@@ -242,7 +242,7 @@ void *cc_vector_front(cc_vector_t *vector)
 {
 	if (vector == NULL) {
 		CC_VECTOR_LOG("The vector is uninitialized.");
-		return CC_VECTOR_EXIT_FAILURE;
+		exit(CC_VECTOR_EXIT_FAILURE);
 	}
 	return vector->data[0];
 }
@@ -251,7 +251,7 @@ void *cc_vector_back(cc_vector_t *vector)
 {
 	if (vector == NULL) {
 		CC_VECTOR_LOG("The vector is uninitialized.");
-		return CC_VECTOR_EXIT_FAILURE;
+		exit(CC_VECTOR_EXIT_FAILURE);
 	}
 	return vector->data[vector->size - 1];
 }
@@ -267,7 +267,7 @@ void cc_vector_push_back(cc_vector_t *vector, void *data)
 		if (!new_data) {
 			CC_VECTOR_LOG(
 				"Memory allocation has failed for cc_vector_push_back(). Terminating program with failing exit status.");
-			return CC_VECTOR_EXIT_FAILURE;
+			exit(CC_VECTOR_EXIT_FAILURE);
 		}
 		vector->data = new_data;
 	}
@@ -304,7 +304,7 @@ void cc_vector_erase(cc_vector_t *vector, size_t pos)
 {
 	if (vector == NULL || pos >= vector->size) {
 		CC_VECTOR_LOG("Invalid position for cc_vector_erase.");
-		return CC_VECTOR_EXIT_FAILURE;
+		exit(CC_VECTOR_EXIT_FAILURE);
 	}
 
 	for (size_t i = pos; i < vector->size - 1; ++i) {
@@ -318,7 +318,7 @@ void cc_vector_shrink_to_fit(cc_vector_t *vector)
 {
 	if (vector == NULL) {
 		CC_VECTOR_LOG("The vector is uninitialized.");
-		return CC_VECTOR_EXIT_FAILURE;
+		exit(CC_VECTOR_EXIT_FAILURE);
 	}
 
 	if (vector->size < vector->capacity) {
@@ -327,7 +327,7 @@ void cc_vector_shrink_to_fit(cc_vector_t *vector)
 		if (!new_data) {
 			CC_VECTOR_LOG(
 				"Memory allocation has failed for cc_vector_shrink_to_fit(). Terminating program with failing exit status.");
-			return CC_VECTOR_EXIT_FAILURE;
+			exit(CC_VECTOR_EXIT_FAILURE);
 		}
 		vector->data = new_data;
 		vector->capacity = vector->size;
@@ -344,7 +344,7 @@ void *cc_vector_iterator_next(cc_vector_iterator_t *iter)
 {
 	if (iter == NULL || iter->vector == NULL) {
 		CC_VECTOR_LOG("Iterator or vector is uninitialized.");
-		return CC_VECTOR_EXIT_FAILURE;
+		exit(CC_VECTOR_EXIT_FAILURE);
 	}
 
 	if (iter->index >= iter->vector->size) {
