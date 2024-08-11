@@ -102,7 +102,13 @@ cc_linkedlist_node_t *cc_linkedlist_create_node(void *data, size_t data_size)
 	new_node->data = malloc(data_size);
 	new_node->next = NULL;
 
-	memcpy(new_node->data, data, data_size);
+	if (sizeof(new_node->data) >= sizeof(data)) {
+		memcpy(new_node->data, data, data_size);
+	} else {
+		CC_LINKEDLIST_LOG(
+			"The destination node should be bigger or equal than source node. Terminating program with failing exit status.");
+		exit(EXIT_FAILURE);
+	}
 
 	return new_node;
 }
