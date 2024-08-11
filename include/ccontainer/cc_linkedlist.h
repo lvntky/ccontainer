@@ -58,7 +58,7 @@ extern "C" {
 
 typedef struct cc_linkedlist_node {
 	void *data;
-	struct cc_linkedlist_node_t *next;
+	struct cc_linkedlist_node *next;
 } cc_linkedlist_node_t;
 
 // =====================================================================
