@@ -1,40 +1,28 @@
-name: Continuous Integration
+name: CI
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+on: [push, pull_request]
 
 jobs:
   test:
     runs-on: ubuntu-22.04
 
-    strategy:
-      matrix:
-        os: [ubuntu-22.04]
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout source
+        uses: actions/checkout@v4
 
-      - name: Install static analyzers
-        if: matrix.os == 'ubuntu-22.04'
+      - name: Install dependencies
         run: |
           sudo apt-get update -q
-          sudo apt-get install clang-tidy-14 cppcheck -y -q
+          sudo apt-get install clang-tidy-14 cppcheck doxygen -y -q
           sudo update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-14 140
 
-      - name: Setup MultiToolTask
-        if: matrix.os == 'windows-2022'
+      - name: Download utest.h
         run: |
-          Add-Content "$env:GITHUB_ENV" 'UseMultiToolTask=true'
-          Add-Content "$env:GITHUB_ENV" 'EnforceProcessCountAcrossBuilds=true'
+          mkdir -p test/source
+          curl -o test/source/utest.h https://raw.githubusercontent.com/sheredom/utest.h/master/utest.h
 
       - name: Configure
-        shell: pwsh
-        run: cmake "--preset=ci-$("${{ matrix.os }}".split("-")[0])"
+        run: cmake --preset=ci-linux
 
       - name: Build
         run: cmake --build build --config Release -j 2
@@ -47,32 +35,28 @@ jobs:
         run: ctest --output-on-failure --no-tests=error -C Release -j 2
 
   docs:
-    needs: [test]
     runs-on: ubuntu-22.04
-
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push' && github.repository_owner == 'lvntky'
-
-    permissions:
-      contents: write
+    needs: test
 
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install m.css dependencies
-        run: pip3 install jinja2 Pygments
+      - name: Checkout source
+        uses: actions/checkout@v4
 
       - name: Install Doxygen
-        run: sudo apt-get update -q && sudo apt-get install doxygen -q -y
+        run: sudo apt-get install doxygen -y -q
 
-      - name: Build docs
-        run: cmake "-DPROJECT_SOURCE_DIR=$PWD" "-DPROJECT_BINARY_DIR=$PWD/build" -P cmake/docs-ci.cmake
+      - name: Build documentation
+        run: |
+          cmake --preset=ci-linux
+          cmake --build build --target docs
 
-      - name: Deploy docs
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/docs/html
+      - name: Deploy documentation to branch
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git checkout --orphan gh-pages
+          git rm -rf .
+          cp -r build/docs/html/* .
+          git add .
+          git commit -m "Deploy docs"
+          git push --force origin gh-pages
