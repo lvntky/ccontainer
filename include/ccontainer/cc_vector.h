@@ -132,7 +132,7 @@ size_t cc_vector_size(cc_vector_t *vector);
  *
  * @return const size_t
  */
-size_t cc_vector_maxsize();
+size_t cc_vector_maxsize(void);
 
 /**
  * @brief Requests the removal of unused capacity.
@@ -250,7 +250,7 @@ size_t cc_vector_size(cc_vector_t *vector)
 	return vector->size;
 }
 
-size_t cc_vector_maxsize()
+size_t cc_vector_maxsize(void)
 {
 	//TODO: needs cheks
 	return CC_VECTOR_MAX_SIZE;
