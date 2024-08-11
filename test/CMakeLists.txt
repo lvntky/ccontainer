@@ -18,8 +18,7 @@ include(Catch)
 
 add_executable(
     ccontainer_test
-    source/ccontainer_test.cpp
-    source/header_impl.c
+    source/ccontainer_test_main.c
 )
 target_link_libraries(
     ccontainer_test PRIVATE
