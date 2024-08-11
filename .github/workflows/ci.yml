@@ -30,24 +30,20 @@ jobs:
           sudo cmake --install . --prefix /usr/local
           cd ..
 
-      - name: Configure Test
+      - name: Build tests
         run: |
-          mkdir -p test/build
-          cd test/build
-          cmake -S ../.. -B .
-          cd ../..
-
-      - name: Build Tests
-        run: |
-          cd test/build
-          cmake --build . --config Release -j 2
-          cd ../..
+          cd test
+          mkdir -p build
+          cd build/
+          cmake ..
+          cd ..
+          cmake --build build --config Release
 
       - name: Run Tests
         run: |
-          cd test/build
+          cd build/
           ctest --output-on-failure -j 2
-          cd ../..
+          
 
   docs:
     runs-on: ubuntu-22.04
