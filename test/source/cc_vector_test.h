@@ -63,4 +63,6 @@ void cc_vector_complex_data_test(void)
 
 	TEST_ASSERT_NOT_EQUAL(0, cc_vector_at(vec, 0));
 	TEST_ASSERT_EQUAL(2, cc_vector_size(vec));
+
+	cc_vector_free(vec);
 }
