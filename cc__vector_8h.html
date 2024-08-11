@@ -72,6 +72,10 @@
               struct <a href="structcc__vector.html" class="m-doc">cc_vector</a>
             </dt>
             <dd><span></span></dd>
+            <dt>
+              struct <a href="structcc__vector__iterator.html" class="m-doc">cc_vector_iterator</a>
+            </dt>
+            <dd>Iterator support for <a href="structcc__vector.html" class="m-doc">cc_<wbr />vector</a>.</dd>
           </dl>
         </section>
         <section id="typedef-members">
@@ -81,6 +85,10 @@
               using <a href="#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc-self">cc_vector_t</a> = struct <a href="structcc__vector.html" class="m-doc">cc_<wbr />vector</a>
             </dt>
             <dd><span></span></dd>
+            <dt id="afa9a94fda6181a57d619aa0284068f86">
+              using <a href="#afa9a94fda6181a57d619aa0284068f86" class="m-doc-self">cc_vector_iterator_t</a> = struct <a href="structcc__vector__iterator.html" class="m-doc">cc_<wbr />vector_<wbr />iterator</a>
+            </dt>
+            <dd>Iterator support for <a href="structcc__vector.html" class="m-doc">cc_<wbr />vector</a>.</dd>
           </dl>
         </section>
         <section id="func-members">
@@ -137,6 +145,14 @@
               size_t pos)</span>
             </dt>
             <dd>Erase the element at position.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a4735c04bca169afae61026c38a6a09da" class="m-doc">cc_vector_iterator_begin</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector) -&gt; <a href="cc__vector_8h.html#afa9a94fda6181a57d619aa0284068f86" class="m-doc">cc_<wbr />vector_<wbr />iterator_<wbr />t</a></span>
+            </dt>
+            <dd>initializes the iterator at the beginning of the vector.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ac0440db35bb7947d11fbcf7569316f8a" class="m-doc">cc_vector_iterator_next</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#afa9a94fda6181a57d619aa0284068f86" class="m-doc">cc_<wbr />vector_<wbr />iterator_<wbr />t</a>* iter) -&gt; void*</span>
+            </dt>
+            <dd>advances the iterator and returns the current element.</dd>
           </dl>
         </section>
         <section id="define-members">
@@ -152,6 +168,10 @@
             <dd><span></span></dd>
             <dt id="a6b1c2378911c5cba8dc66c2790807d7a">
               <span class="m-doc-wrap-bumper">#define <a href="#a6b1c2378911c5cba8dc66c2790807d7a" class="m-doc-self">CC_VECTOR_DEFAULT_CAPACITY</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="acc6c9d9f27e1e02567bc7a1c498c4170">
+              <span class="m-doc-wrap-bumper">#define <a href="#acc6c9d9f27e1e02567bc7a1c498c4170" class="m-doc-self">CC_VECTOR_EXIT_FAILURE</a></span>
             </dt>
             <dd><span></span></dd>
             <dt id="ae426c8bdbd1408afedc082948a62ab65">
@@ -404,6 +424,52 @@
                   <td></td>
                 </tr>
               </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a4735c04bca169afae61026c38a6a09da"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="cc__vector_8h.html#afa9a94fda6181a57d619aa0284068f86" class="m-doc">cc_<wbr />vector_<wbr />iterator_<wbr />t</a> </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4735c04bca169afae61026c38a6a09da" class="m-doc-self">cc_vector_iterator_begin</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector)</span></span>
+            </h3>
+            <p>initializes the iterator at the beginning of the vector.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">vector</td>
+                  <td>to initilize iterator on</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>cc_vector_iterator_t iterator itself</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ac0440db35bb7947d11fbcf7569316f8a"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac0440db35bb7947d11fbcf7569316f8a" class="m-doc-self">cc_vector_iterator_next</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#afa9a94fda6181a57d619aa0284068f86" class="m-doc">cc_<wbr />vector_<wbr />iterator_<wbr />t</a>* iter)</span></span>
+            </h3>
+            <p>advances the iterator and returns the current element.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">iter</td>
+                  <td>iterator that runs</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>void* data to return</td>
+                </tr>
+              </tfoot>
             </table>
           </div></section>
         </section>
