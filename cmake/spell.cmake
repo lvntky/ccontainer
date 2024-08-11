@@ -7,7 +7,7 @@ macro(default name)
 endmacro()
 
 default(SPELL_COMMAND codespell)
-default(FIX NO)
+default(FIX YES)
 
 set(flag "")
 if(FIX)
