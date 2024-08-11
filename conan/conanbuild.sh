@@ -1,0 +1,1 @@
+. "/home/levent/ccontainer/conan/conanbuildenv-release-x86_64.sh"
