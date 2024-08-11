@@ -10,7 +10,6 @@ project(
     LANGUAGES NONE
 )
 
-
 include(cmake/variables.cmake)
 
 # ---- Declare library ----
@@ -30,6 +29,9 @@ target_include_directories(
 )
 
 target_compile_features(ccontainer_ccontainer INTERFACE c_std_99)
+
+find_package(unity REQUIRED)
+target_link_libraries(ccontainer_ccontainer INTERFACE json-c::json-c)
 
 # ---- Install rules ----
 
