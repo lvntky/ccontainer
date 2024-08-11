@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ccontainer/ directory | ccontainer</title>
+  <title>ccontainer/cc_linkedlist.h file | ccontainer</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
@@ -48,7 +48,7 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          ccontainer<span class="m-breadcrumb">/</span> <span class="m-thin">directory</span>
+          <span class="m-breadcrumb"><a href="dir_b7fcab5a8f638d8b1adcc792b98e7845.html">ccontainer</a>/</span>cc_linkedlist.h <span class="m-thin">file</span>
         </h1>
         <p><span></span></p>
         <div class="m-block m-default">
@@ -57,19 +57,109 @@
             <li>
               Reference
               <ul>
-                <li><a href="#files">Files</a></li>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#define-members">Defines</a></li>
               </ul>
             </li>
           </ul>
         </div>
-        <section id="files">
-          <h2><a href="#files">Files</a></h2>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
           <dl class="m-doc">
-            <dt>file <a href="cc__linkedlist_8h.html" class="m-doc">cc_linkedlist.h</a></dt>
-            <dd><span></span></dd>
-            <dt>file <a href="cc__vector_8h.html" class="m-doc">cc_vector.h</a></dt>
+            <dt>
+              struct <a href="structcc__linkedlist__node.html" class="m-doc">cc_linkedlist_node</a>
+            </dt>
             <dd><span></span></dd>
           </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="aee1a307d47d1a73fce02a29d8a03b65f">
+              using <a href="#aee1a307d47d1a73fce02a29d8a03b65f" class="m-doc-self">cc_linkedlist_node_t</a> = struct <a href="structcc__linkedlist__node.html" class="m-doc">cc_<wbr />linkedlist_<wbr />node</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a796408d9baec32db63fe66a225f1352f" class="m-doc">cc_linkedlist_create_node</a>(</span><span class="m-doc-wrap">void* data,
+              size_t data_size) -&gt; <a href="cc__linkedlist_8h.html#aee1a307d47d1a73fce02a29d8a03b65f" class="m-doc">cc_<wbr />linkedlist_<wbr />node_<wbr />t</a>*</span>
+            </dt>
+            <dd>create single node for linked list</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a3c85029cba28c4d0445cfc53b54d4a06" class="m-doc">cc_linkedlist_size</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#aee1a307d47d1a73fce02a29d8a03b65f" class="m-doc">cc_<wbr />linkedlist_<wbr />node_<wbr />t</a>* head) -&gt; size_t</span>
+            </dt>
+            <dd>gets the current size of linked list</dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="a84d3c17e0decb9943aef51c1c36d41cf">
+              <span class="m-doc-wrap-bumper">#define <a href="#a84d3c17e0decb9943aef51c1c36d41cf" class="m-doc-self">CC_LINKEDLIST_LOG</a>(</span><span class="m-doc-wrap">format,
+              ...)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a796408d9baec32db63fe66a225f1352f"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="cc__linkedlist_8h.html#aee1a307d47d1a73fce02a29d8a03b65f" class="m-doc">cc_<wbr />linkedlist_<wbr />node_<wbr />t</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a796408d9baec32db63fe66a225f1352f" class="m-doc-self">cc_linkedlist_create_node</a>(</span><span class="m-doc-wrap">void* data,
+              size_t data_size)</span></span>
+            </h3>
+            <p>create single node for linked list</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">data</td>
+                  <td>to push to the linked list</td>
+                </tr>
+                <tr>
+                  <td>data_size</td>
+                  <td>size of the data for allocating memory for it</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>cc_linkedlist_node_t*</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a3c85029cba28c4d0445cfc53b54d4a06"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">size_t </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3c85029cba28c4d0445cfc53b54d4a06" class="m-doc-self">cc_linkedlist_size</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#aee1a307d47d1a73fce02a29d8a03b65f" class="m-doc">cc_<wbr />linkedlist_<wbr />node_<wbr />t</a>* head)</span></span>
+            </h3>
+            <p>gets the current size of linked list</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">head</td>
+                  <td>to point specified linked list</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>size_t number of nodes</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
         </section>
       </div>
     </div>

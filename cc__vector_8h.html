@@ -116,6 +116,27 @@
               <span class="m-doc-wrap-bumper">auto <a href="#a806e18862e0ea928aab28770ea6211f7" class="m-doc">cc_vector_size</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector) -&gt; size_t</span>
             </dt>
             <dd>return the size of elements inside vector</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a6b58cfb79c97d3b01a54d2025c2bea80" class="m-doc">cc_vector_maxsize</a>(</span><span class="m-doc-wrap">) -&gt; size_t</span>
+            </dt>
+            <dd>Returns the maximum number of elements the container is able to hold due to system or library implementation limitations.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a53992ecde0e16471223f31407c8240eb" class="m-doc">cc_vector_shrint_to_fix</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector)</span>
+            </dt>
+            <dd>Requests the removal of unused capacity.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a79307557f8f99d22d077b0fc97cb23e8" class="m-doc">cc_vector_capacity</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector) -&gt; size_t</span>
+            </dt>
+            <dd>Returns the number of elements that the container has currently allocated space for.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#aad8ef62f21abb9ea43d6623eac18cc8d" class="m-doc">cc_vector_clear</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector)</span>
+            </dt>
+            <dd>Clears the entire vector.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a4a768c16ccd2db124db7b6233659222b" class="m-doc">cc_vector_erase</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector,
+              size_t pos)</span>
+            </dt>
+            <dd>Erase the element at position.</dd>
           </dl>
         </section>
         <section id="define-members">
@@ -123,6 +144,19 @@
           <dl class="m-doc">
             <dt id="a7225d1399df96a6f6d684d3689efe264">
               <span class="m-doc-wrap-bumper">#define <a href="#a7225d1399df96a6f6d684d3689efe264" class="m-doc-self">CC_VECTOR_DEFAULT_CAPACITY_INCREASE_SIZE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a91c4018fa03a3140c5bc06fc1657723a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a91c4018fa03a3140c5bc06fc1657723a" class="m-doc-self">CC_VECTOR_MAX_SIZE</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6b1c2378911c5cba8dc66c2790807d7a">
+              <span class="m-doc-wrap-bumper">#define <a href="#a6b1c2378911c5cba8dc66c2790807d7a" class="m-doc-self">CC_VECTOR_DEFAULT_CAPACITY</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae426c8bdbd1408afedc082948a62ab65">
+              <span class="m-doc-wrap-bumper">#define <a href="#ae426c8bdbd1408afedc082948a62ab65" class="m-doc-self">CC_VECTOR_LOG</a>(</span><span class="m-doc-wrap">format,
+              ...)</span>
             </dt>
             <dd><span></span></dd>
           </dl>
@@ -277,6 +311,99 @@
                   <td>size_t</td>
                 </tr>
               </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a6b58cfb79c97d3b01a54d2025c2bea80"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">size_t </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6b58cfb79c97d3b01a54d2025c2bea80" class="m-doc-self">cc_vector_maxsize</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Returns the maximum number of elements the container is able to hold due to system or library implementation limitations.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>const size_t</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a53992ecde0e16471223f31407c8240eb"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a53992ecde0e16471223f31407c8240eb" class="m-doc-self">cc_vector_shrint_to_fix</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector)</span></span>
+            </h3>
+            <p>Requests the removal of unused capacity.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">vector</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a79307557f8f99d22d077b0fc97cb23e8"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">size_t </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a79307557f8f99d22d077b0fc97cb23e8" class="m-doc-self">cc_vector_capacity</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector)</span></span>
+            </h3>
+            <p>Returns the number of elements that the container has currently allocated space for.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">vector</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>size_t</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="aad8ef62f21abb9ea43d6623eac18cc8d"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aad8ef62f21abb9ea43d6623eac18cc8d" class="m-doc-self">cc_vector_clear</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector)</span></span>
+            </h3>
+            <p>Clears the entire vector.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">vector</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a4a768c16ccd2db124db7b6233659222b"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4a768c16ccd2db124db7b6233659222b" class="m-doc-self">cc_vector_erase</a>(</span><span class="m-doc-wrap"><a href="cc__vector_8h.html#a69d034f3e26908dd724e47b0e85c7b28" class="m-doc">cc_<wbr />vector_<wbr />t</a>* vector,
+              size_t pos)</span></span>
+            </h3>
+            <p>Erase the element at position.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">vector</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>pos</td>
+                  <td></td>
+                </tr>
+              </tbody>
             </table>
           </div></section>
         </section>
