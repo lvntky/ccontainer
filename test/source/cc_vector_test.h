@@ -7,10 +7,6 @@
 *  ===================================
 */
 
-void cc_vector_create_test();
-void cc_vector_at_test();
-void cc_vector_size_test();
-
 /* ===================================
 *               Definitions
 *  ===================================
