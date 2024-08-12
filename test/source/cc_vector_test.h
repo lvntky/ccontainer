@@ -66,3 +66,12 @@ void cc_vector_complex_data_test(void)
 
 	cc_vector_free(vec);
 }
+
+void cc_vector_iterator_begin_test(void)
+{
+	cc_vector_t *vec = cc_vector_create(1);
+	cc_vector_iterator_t it = cc_vector_iterator_begin(vec);
+
+	TEST_ASSERT_EQUAL(vec, it.vector);
+	TEST_ASSERT_EQUAL(0, it.index);
+}

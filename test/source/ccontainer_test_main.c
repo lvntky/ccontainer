@@ -18,6 +18,7 @@ int main(void)
 	RUN_TEST(cc_vector_at_test);
 	RUN_TEST(cc_vector_size_test);
 	RUN_TEST(cc_vector_complex_data_test);
+	RUN_TEST(cc_vector_iterator_begin_test);
 
 	return UNITY_END();
 }

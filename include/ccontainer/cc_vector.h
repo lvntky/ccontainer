@@ -35,6 +35,7 @@
 #include <stddef.h> // for size_t
 #include <stdlib.h> // for malloc
 #include <stdio.h> // for snprintf
+#include <pthread.h> // for pthread_mutex_t, pthread_mutex_lock, pthread_mutex_unlock
 
 #ifdef __cplusplus
 extern "C" {
@@ -69,6 +70,7 @@ typedef struct cc_vector {
 	void **data;
 	size_t size;
 	size_t capacity;
+	pthread_mutex_t lock;
 } cc_vector_t;
 
 /**
@@ -216,13 +218,14 @@ cc_vector_t *cc_vector_create(size_t initial_capacity)
 	vector->capacity = initial_capacity;
 	vector->size = 0;
 	vector->data = (void **)malloc(sizeof(void *) * vector->capacity);
-
+	pthread_mutex_init(&vector->lock, NULL); // No mutex attribute
 	return vector;
 }
 
 void cc_vector_free(cc_vector_t *vector)
 {
 	if (vector) {
+		pthread_mutex_destroy(&vector->lock);
 		free(vector->data);
 		free(vector);
 	}
@@ -230,34 +233,44 @@ void cc_vector_free(cc_vector_t *vector)
 
 void *cc_vector_at(cc_vector_t *vector, size_t index)
 {
+	pthread_mutex_lock(&vector->lock);
 	if (index > vector->size) {
 		CC_VECTOR_LOG(
 			"Index out of bounds. Terminating program with failing exit status.");
+		pthread_mutex_unlock(&vector->lock);
 		exit(CC_VECTOR_EXIT_FAILURE);
 	}
+	pthread_mutex_unlock(&vector->lock);
 	return vector->data[index];
 }
 
 void *cc_vector_front(cc_vector_t *vector)
 {
+	pthread_mutex_lock(&vector->lock);
 	if (vector == NULL) {
 		CC_VECTOR_LOG("The vector is uninitialized.");
+		pthread_mutex_unlock(&vector->lock);
 		exit(CC_VECTOR_EXIT_FAILURE);
 	}
+	pthread_mutex_unlock(&vector->lock);
 	return vector->data[0];
 }
 
 void *cc_vector_back(cc_vector_t *vector)
 {
+	pthread_mutex_lock(&vector->lock);
 	if (vector == NULL) {
 		CC_VECTOR_LOG("The vector is uninitialized.");
+		pthread_mutex_unlock(&vector->lock);
 		exit(CC_VECTOR_EXIT_FAILURE);
 	}
+	pthread_mutex_unlock(&vector->lock);
 	return vector->data[vector->size - 1];
 }
 
 void cc_vector_push_back(cc_vector_t *vector, void *data)
 {
+	pthread_mutex_lock(&vector->lock);
 	if (vector->size == vector->capacity) {
 		// Double the capacity or set it to 1 if it's currently 0
 		vector->capacity = vector->capacity == 0 ? 1 :
@@ -267,17 +280,22 @@ void cc_vector_push_back(cc_vector_t *vector, void *data)
 		if (!new_data) {
 			CC_VECTOR_LOG(
 				"Memory allocation has failed for cc_vector_push_back(). Terminating program with failing exit status.");
+			pthread_mutex_unlock(&vector->lock);
 			exit(CC_VECTOR_EXIT_FAILURE);
 		}
 		vector->data = new_data;
 	}
 	vector->data[vector->size++] = data;
+	pthread_mutex_unlock(&vector->lock);
 }
 
 size_t cc_vector_size(cc_vector_t *vector)
 {
+	pthread_mutex_lock(&vector->lock);
+	size_t size = vector->size;
+	pthread_mutex_unlock(&vector->lock);
 	//TODO: NULL check might be needed.
-	return vector->size;
+	return size;
 }
 
 size_t cc_vector_maxsize(void)
@@ -288,22 +306,29 @@ size_t cc_vector_maxsize(void)
 
 size_t cc_vector_capacity(cc_vector_t *vector)
 {
-	return vector->capacity;
+	pthread_mutex_lock(&vector->lock);
+	size_t capacity = vector->capacity;
+	pthread_mutex_unlock(&vector->lock);
+	return capacity;
 }
 
 void cc_vector_clear(cc_vector_t *vector)
 {
+	pthread_mutex_lock(&vector->lock);
 	cc_vector_free(vector);
 
-	// and re-initialize for reuse
+	// and re-initialize for reuse (TODO: Possibly gonna fvck up, check it)
 	vector = cc_vector_create(0);
+	pthread_mutex_unlock(&vector->lock);
 }
 
 // Works at O(n), can we make it more efficient ?
 void cc_vector_erase(cc_vector_t *vector, size_t pos)
 {
+	pthread_mutex_lock(&vector->lock);
 	if (vector == NULL || pos >= vector->size) {
 		CC_VECTOR_LOG("Invalid position for cc_vector_erase.");
+		pthread_mutex_unlock(&vector->lock);
 		exit(CC_VECTOR_EXIT_FAILURE);
 	}
 
@@ -312,26 +337,26 @@ void cc_vector_erase(cc_vector_t *vector, size_t pos)
 	}
 
 	vector->size--;
+	pthread_mutex_unlock(&vector->lock);
 }
 
 void cc_vector_shrink_to_fit(cc_vector_t *vector)
 {
+	pthread_mutex_lock(&vector->lock);
 	if (vector == NULL) {
 		CC_VECTOR_LOG("The vector is uninitialized.");
+		pthread_mutex_unlock(&vector->lock);
 		exit(CC_VECTOR_EXIT_FAILURE);
 	}
 
-	if (vector->size < vector->capacity) {
-		void **new_data = (void **)realloc(
-			vector->data, sizeof(void *) * vector->size);
-		if (!new_data) {
-			CC_VECTOR_LOG(
-				"Memory allocation has failed for cc_vector_shrink_to_fit(). Terminating program with failing exit status.");
-			exit(CC_VECTOR_EXIT_FAILURE);
-		}
+	void **new_data =
+		(void **)realloc(vector->data, vector->size * sizeof(void *));
+
+	if (new_data) {
 		vector->data = new_data;
 		vector->capacity = vector->size;
 	}
+	pthread_mutex_unlock(&vector->lock);
 }
 
 cc_vector_iterator_t cc_vector_iterator_begin(cc_vector_t *vector)
