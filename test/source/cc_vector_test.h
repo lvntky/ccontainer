@@ -74,4 +74,6 @@ void cc_vector_iterator_begin_test(void)
 
 	TEST_ASSERT_EQUAL(vec, it.vector);
 	TEST_ASSERT_EQUAL(0, it.index);
+
+	cc_vector_free(vec);
 }
