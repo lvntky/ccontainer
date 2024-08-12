@@ -77,3 +77,24 @@ void cc_vector_iterator_begin_test(void)
 
 	cc_vector_free(vec);
 }
+
+void cc_vector_front_test(void)
+{
+	cc_vector_t *vec = cc_vector_create(1);
+	char data = 'a';
+	cc_vector_push_back(vec, &data);
+
+	TEST_ASSERT_EQUAL(*(char *)cc_vector_front(vec), data);
+}
+
+void cc_vector_back_test(void)
+{
+	cc_vector_t *vec = cc_vector_create(1);
+	char data = 'a';
+	cc_vector_push_back(vec, &data);
+
+	char data2 = 'b';
+	cc_vector_push_back(vec, &data2);
+
+	TEST_ASSERT_EQUAL(*(char *)cc_vector_back(vec), data2);
+}

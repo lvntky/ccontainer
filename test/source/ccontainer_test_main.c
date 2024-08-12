@@ -19,6 +19,8 @@ int main(void)
 	RUN_TEST(cc_vector_size_test);
 	RUN_TEST(cc_vector_complex_data_test);
 	RUN_TEST(cc_vector_iterator_begin_test);
+	RUN_TEST(cc_vector_front_test);
+	RUN_TEST(cc_vector_back_test);
 
 	return UNITY_END();
 }
