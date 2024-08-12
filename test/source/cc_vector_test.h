@@ -85,6 +85,7 @@ void cc_vector_front_test(void)
 	cc_vector_push_back(vec, &data);
 
 	TEST_ASSERT_EQUAL(*(char *)cc_vector_front(vec), data);
+	cc_vector_free(vec);
 }
 
 void cc_vector_back_test(void)
@@ -97,4 +98,5 @@ void cc_vector_back_test(void)
 	cc_vector_push_back(vec, &data2);
 
 	TEST_ASSERT_EQUAL(*(char *)cc_vector_back(vec), data2);
+	cc_vector_free(vec);
 }
