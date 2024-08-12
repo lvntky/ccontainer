@@ -82,5 +82,8 @@ See the [CONTRIBUTING](CONTRIBUTING.md) document.
 
 You can check and inform development and implementation status of containers from [DEVELOPMENT](DEVELOPMENT.md) document.
 
+## Unit Test Coverage Graph Per File
+![graph](https://codecov.io/gh/lvntky/ccontainer/graphs/tree.svg?token=0aUe4T51Su)
+
 ## Licensing
 This software is available under 2 [licenses](LICENSE) -- choose whichever you prefer.
