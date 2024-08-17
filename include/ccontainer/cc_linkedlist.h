@@ -61,6 +61,11 @@ typedef struct cc_linkedlist_node {
 	struct cc_linkedlist_node *next;
 } cc_linkedlist_node_t;
 
+typedef struct cc_linkedlist {
+	cc_linkedlist_node_t *head;
+	size_t size;
+} cc_linkedlist_t;
+
 // =====================================================================
 //                          Library Function Declarations
 // =====================================================================
@@ -72,7 +77,15 @@ typedef struct cc_linkedlist_node {
  * @param data_size size of the data for allocating memory for it
  * @return cc_linkedlist_node_t* 
  */
-cc_linkedlist_node_t *cc_linkedlist_create_node(void *data, size_t data_size);
+cc_linkedlist_node_t *cc_linkedlist_node_create(void *data, size_t data_size);
+
+/**
+ * @brief initialize an empty list
+ * 
+ * @param list list that head node points to NULL
+ * @param data_size given by user
+ */
+void cc_linkedlist_init(cc_linkedlist_t *list, size_t data_size);
 
 /**
  * @brief gets the current size of linked list
@@ -81,6 +94,51 @@ cc_linkedlist_node_t *cc_linkedlist_create_node(void *data, size_t data_size);
  * @return size_t number of nodes
  */
 size_t cc_linkedlist_size(cc_linkedlist_node_t *head);
+
+/**
+ * @brief insert data beggining of the list
+ * 
+ * @param list list that data will be instered
+ * @param data data that will be insert
+ */
+void cc_linkedlist_inser_front(cc_linkedlist_t *list, void *data);
+
+/**
+ * @brief insert data end of the list
+ * 
+ * @param list list that data will be instered
+ * @param data data that will be insert
+ */
+void cc_linkedlist_inser_back(cc_linkedlist_t *list, void *data);
+
+/**
+ * @brief delete the first node with given data
+ * 
+ * @param list 
+ * @param data 
+ * @param cmp 
+ */
+void cc_linkedlist_node_delete(cc_linkedlist_t *list, void *data,
+			       int (*cmp)(void *, void *));
+
+/**
+ * @brief search node with given data
+ * 
+ * @param list 
+ * @param data 
+ * @param cmp 
+ * @return cc_linkedlist_node_t* node that contains requested data 
+ */
+cc_linkedlist_node_t *cc_linkedlist_node_search(cc_linkedlist_t *list,
+						void *data,
+						int (*cmp)(void *, void *));
+
+/**
+ * @brief delete the entire list from heap
+ * 
+ * @param list to delete
+ */
+void cc_linkedlist_free(cc_linkedlist_t *list);
 
 // =====================================================================
 //                        Function Definitions
@@ -124,6 +182,20 @@ size_t cc_linkedlist_size(cc_linkedlist_node_t *head)
 	}
 
 	return counter;
+}
+
+void cc_linkedlist_init(cc_linkedlist_t *list, size_t data_size)
+{
+	list->head = NULL;
+	list->size = data_size;
+}
+
+void cc_linkedlist_inser_front(cc_linkedlist_t *list, void *data)
+{
+	cc_linkedlist_node_t *newnode =
+		cc_linkedlist_create_node(data, list->size);
+	newnode->next = list->head;
+	list->head = newnode;
 }
 
 #endif // CC_LINKEDLIST_IMPLEMENTATION
@@ -175,6 +247,3 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ------------------------------------------------------------------------------
 */
-
-// TODO:
-// I should make a yasnippet out of this

@@ -1,3 +1,4 @@
+#pragma once
 #define CC_VECTOR_IMPLEMENTATION
 #include "../../include/ccontainer/cc_vector.h"
 #include "unity.h"

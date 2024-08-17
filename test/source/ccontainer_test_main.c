@@ -1,5 +1,6 @@
 #include "unity.h"
 #include "cc_vector_test.h"
+#include "cc_linkedlist_test.h"
 
 void setUp(void)
 {
@@ -21,6 +22,7 @@ int main(void)
 	RUN_TEST(cc_vector_iterator_begin_test);
 	RUN_TEST(cc_vector_front_test);
 	RUN_TEST(cc_vector_back_test);
+	RUN_TEST(cc_linkedlist_init_test);
 
 	return UNITY_END();
 }
