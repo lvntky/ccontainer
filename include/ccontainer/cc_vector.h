@@ -12,6 +12,7 @@
 //  - 0.1.0 First public release
 //
 // Status:
+// 	08/18/2025 TODO: replace standart mutex with rw_locks
 //	08/11/2024 TODO: Add thread safety locks
 // 	08/11/2024 TODO: Add safe allocation macro
 //	08/11/2024 Added Iterator support

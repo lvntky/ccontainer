@@ -21,11 +21,11 @@
 //   See end of file for license information.
 
 #ifndef TEMPLATE_H__
-#  define TEMPLATE_H__
+#define TEMPLATE_H__
 
-#  ifdef __cplusplus
+#ifdef __cplusplus
 extern "C" {
-#  endif
+#endif
 
 // =====================================================================
 //                          Configuration Macros
@@ -51,15 +51,15 @@ extern "C" {
 //                        Function Definitions
 // =====================================================================
 
-#  ifdef MYLIB_IMPLEMENTATION
+#ifdef MYLIB_IMPLEMENTATION
 
-#  endif  // MYLIB_IMPLEMENTATION
+#endif // MYLIB_IMPLEMENTATION
 
-#  ifdef __cplusplus
+#ifdef __cplusplus
 }
-#  endif
+#endif
 
-#endif  // TEMPLATE_H__
+#endif // TEMPLATE_H__
 
 /*
 ------------------------------------------------------------------------------
@@ -102,6 +102,3 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ------------------------------------------------------------------------------
 */
-
-// TODO:
-// I should make a yasnippet out of this
