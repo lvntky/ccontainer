@@ -23,6 +23,8 @@ int main(void)
 	RUN_TEST(cc_vector_front_test);
 	RUN_TEST(cc_vector_back_test);
 	RUN_TEST(cc_linkedlist_init_test);
+	//RUN_TEST(cc_linkedlist_node_search_test);
+	RUN_TEST(cc_linkedlist_insert_front_test);
 
 	return UNITY_END();
 }
