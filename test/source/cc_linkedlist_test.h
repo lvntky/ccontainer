@@ -12,4 +12,6 @@ void cc_linkedlist_init_test(void)
 
 	TEST_ASSERT_EQUAL(list->size, 10);
 	TEST_ASSERT_EQUAL(list->head, NULL);
+
+	cc_linkedlist_free(list);
 }

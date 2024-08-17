@@ -198,6 +198,14 @@ void cc_linkedlist_inser_front(cc_linkedlist_t *list, void *data)
 	list->head = newnode;
 }
 
+void cc_linkedlist_free(cc_linkedlist_t *list)
+{
+	while (list->head != NULL) {
+		free(list->head);
+	}
+	free(list);
+}
+
 #endif // CC_LINKEDLIST_IMPLEMENTATION
 
 #ifdef __cplusplus
