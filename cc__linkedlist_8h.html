@@ -94,6 +94,12 @@
         <section id="func-members">
           <h2><a href="#func-members">Functions</a></h2>
           <dl class="m-doc">
+            <dt id="a773d80e6855e70ce1d41a1a3ee4a3790">
+              <span class="m-doc-wrap-bumper">auto <a href="#a773d80e6855e70ce1d41a1a3ee4a3790" class="m-doc-self">compare</a>(</span><span class="m-doc-wrap">void* a,
+              void* b,
+              size_t size) -&gt; int</span>
+            </dt>
+            <dd><span></span></dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#ae6a4ea2c7d092d3ee6406ac1d8510bf3" class="m-doc">cc_linkedlist_node_create</a>(</span><span class="m-doc-wrap">void* data,
               size_t data_size) -&gt; <a href="cc__linkedlist_8h.html#aee1a307d47d1a73fce02a29d8a03b65f" class="m-doc">cc_<wbr />linkedlist_<wbr />node_<wbr />t</a>*</span>
@@ -109,25 +115,23 @@
             </dt>
             <dd>gets the current size of linked list</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#ac723286dd4d5683e5f9d57752a9a3ba6" class="m-doc">cc_linkedlist_inser_front</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
+              <span class="m-doc-wrap-bumper">void <a href="#aaefcc1f8e4f4e095c97a3300ca206939" class="m-doc">cc_linkedlist_insert_front</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
               void* data)</span>
             </dt>
             <dd>insert data beggining of the list</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#a9af7ec630b84343ab27e3bb9e7e196c1" class="m-doc">cc_linkedlist_inser_back</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
+              <span class="m-doc-wrap-bumper">void <a href="#a44f546ab0830515125e1e3a3cb39a783" class="m-doc">cc_linkedlist_insert_back</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
               void* data)</span>
             </dt>
             <dd>insert data end of the list</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#ae0b1531c4f55f05789a3c3f0887478e6" class="m-doc">cc_linkedlist_node_delete</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
-              void* data,
-              int(*)(void*, void*) cmp)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#a93aede7957377f02409db05096064d13" class="m-doc">cc_linkedlist_node_delete</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
+              void* data)</span>
             </dt>
             <dd>delete the first node with given data</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#a4d48f1bd05a04819b46b25454c3d7583" class="m-doc">cc_linkedlist_node_search</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
-              void* data,
-              int(*)(void*, void*) cmp) -&gt; <a href="cc__linkedlist_8h.html#aee1a307d47d1a73fce02a29d8a03b65f" class="m-doc">cc_<wbr />linkedlist_<wbr />node_<wbr />t</a>*</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#a2abaef0b4508157d6c2feaa826fcfced" class="m-doc">cc_linkedlist_node_search</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
+              void* data) -&gt; <a href="cc__linkedlist_8h.html#aee1a307d47d1a73fce02a29d8a03b65f" class="m-doc">cc_<wbr />linkedlist_<wbr />node_<wbr />t</a>*</span>
             </dt>
             <dd>search node with given data</dd>
             <dt>
@@ -221,9 +225,9 @@
               </tfoot>
             </table>
           </div></section>
-          <section class="m-doc-details" id="ac723286dd4d5683e5f9d57752a9a3ba6"><div>
+          <section class="m-doc-details" id="aaefcc1f8e4f4e095c97a3300ca206939"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac723286dd4d5683e5f9d57752a9a3ba6" class="m-doc-self">cc_linkedlist_inser_front</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aaefcc1f8e4f4e095c97a3300ca206939" class="m-doc-self">cc_linkedlist_insert_front</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
               void* data)</span></span>
             </h3>
             <p>insert data beggining of the list</p>
@@ -243,9 +247,9 @@
               </tbody>
             </table>
           </div></section>
-          <section class="m-doc-details" id="a9af7ec630b84343ab27e3bb9e7e196c1"><div>
+          <section class="m-doc-details" id="a44f546ab0830515125e1e3a3cb39a783"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9af7ec630b84343ab27e3bb9e7e196c1" class="m-doc-self">cc_linkedlist_inser_back</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a44f546ab0830515125e1e3a3cb39a783" class="m-doc-self">cc_linkedlist_insert_back</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
               void* data)</span></span>
             </h3>
             <p>insert data end of the list</p>
@@ -265,11 +269,10 @@
               </tbody>
             </table>
           </div></section>
-          <section class="m-doc-details" id="ae0b1531c4f55f05789a3c3f0887478e6"><div>
+          <section class="m-doc-details" id="a93aede7957377f02409db05096064d13"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ae0b1531c4f55f05789a3c3f0887478e6" class="m-doc-self">cc_linkedlist_node_delete</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
-              void* data,
-              int(*)(void*, void*) cmp)</span></span>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a93aede7957377f02409db05096064d13" class="m-doc-self">cc_linkedlist_node_delete</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
+              void* data)</span></span>
             </h3>
             <p>delete the first node with given data</p>
             <table class="m-table m-fullwidth m-flat">
@@ -285,18 +288,13 @@
                   <td>data</td>
                   <td></td>
                 </tr>
-                <tr>
-                  <td>cmp</td>
-                  <td></td>
-                </tr>
               </tbody>
             </table>
           </div></section>
-          <section class="m-doc-details" id="a4d48f1bd05a04819b46b25454c3d7583"><div>
+          <section class="m-doc-details" id="a2abaef0b4508157d6c2feaa826fcfced"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="cc__linkedlist_8h.html#aee1a307d47d1a73fce02a29d8a03b65f" class="m-doc">cc_<wbr />linkedlist_<wbr />node_<wbr />t</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4d48f1bd05a04819b46b25454c3d7583" class="m-doc-self">cc_linkedlist_node_search</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
-              void* data,
-              int(*)(void*, void*) cmp)</span></span>
+              <span class="m-doc-wrap-bumper"><a href="cc__linkedlist_8h.html#aee1a307d47d1a73fce02a29d8a03b65f" class="m-doc">cc_<wbr />linkedlist_<wbr />node_<wbr />t</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a2abaef0b4508157d6c2feaa826fcfced" class="m-doc-self">cc_linkedlist_node_search</a>(</span><span class="m-doc-wrap"><a href="cc__linkedlist_8h.html#a7af4845b13c6d5ff5292ed0cff8388b2" class="m-doc">cc_<wbr />linkedlist_<wbr />t</a>* list,
+              void* data)</span></span>
             </h3>
             <p>search node with given data</p>
             <table class="m-table m-fullwidth m-flat">
@@ -310,10 +308,6 @@
                 </tr>
                 <tr>
                   <td>data</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>cmp</td>
                   <td></td>
                 </tr>
               </tbody>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ccontainer</title>
+  <title>ccontainer/cc_stack.h file | ccontainer</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
@@ -32,7 +32,7 @@
             </li>
           </ol>
           <ol class="m-col-t-6 m-col-m-none" start="2">
-            <li><a href="annotated.html" id="m-navbar-current">Classes</a></li>
+            <li><a href="annotated.html">Classes</a></li>
             <li><a href="files.html">Files</a></li>
             <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
               <use href="#m-doc-search-icon-path" />
@@ -47,30 +47,65 @@
   <div class="m-container m-container-inflatable">
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
-        <h1>Classes</h1>
-        <ul class="m-doc">
-          <li>struct <a href="structcc__linkedlist.html" class="m-doc">cc_linkedlist</a> <span class="m-doc"><span></span></span></li>
-          <li>struct <a href="structcc__linkedlist__node.html" class="m-doc">cc_linkedlist_node</a> <span class="m-doc"><span></span></span></li>
-          <li>struct <a href="structcc__stack.html" class="m-doc">cc_stack</a> <span class="m-doc"><span></span></span></li>
-          <li>struct <a href="structcc__vector.html" class="m-doc">cc_vector</a> <span class="m-doc"><span></span></span></li>
-          <li>struct <a href="structcc__vector__iterator.html" class="m-doc">cc_vector_iterator</a> <span class="m-doc">Iterator support for <a href="structcc__vector.html" class="m-doc">cc_<wbr />vector</a>.</span></li>
-        </ul>
-        <script>
-        function toggle(e) {
-            e.parentElement.className = e.parentElement.className == 'm-doc-collapsible' ?
-                'm-doc-expansible' : 'm-doc-collapsible';
-            return false;
-        }
-        /* Collapse all nodes marked as such. Doing it via JS instead of
-           directly in markup so disabling it doesn't harm usability. The list
-           is somehow regenerated on every iteration and shrinks as I change
-           the classes. It's not documented anywhere and I'm not sure if this
-           is the same across browsers, so I am going backwards in that list to
-           be sure. */
-        var collapsed = document.getElementsByClassName("collapsed");
-        for(var i = collapsed.length - 1; i >= 0; --i)
-            collapsed[i].className = 'm-doc-expansible';
-        </script>
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_b7fcab5a8f638d8b1adcc792b98e7845.html">ccontainer</a>/</span>cc_stack.h <span class="m-thin">file</span>
+        </h1>
+        <p><span></span></p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
+                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <section id="nested-classes">
+          <h2><a href="#nested-classes">Classes</a></h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="structcc__stack.html" class="m-doc">cc_stack</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
+          <dl class="m-doc">
+            <dt id="a9b5c284f7136546ed0268a995be99143">
+              using <a href="#a9b5c284f7136546ed0268a995be99143" class="m-doc-self">cc_stack_t</a> = struct <a href="structcc__stack.html" class="m-doc">cc_<wbr />stack</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a7baf2925516604a89295b0647b82e692">
+              <span class="m-doc-wrap-bumper">void <a href="#a7baf2925516604a89295b0647b82e692" class="m-doc-self">cc_stack_create</a>(</span><span class="m-doc-wrap"><a href="cc__stack_8h.html#a9b5c284f7136546ed0268a995be99143" class="m-doc">cc_<wbr />stack_<wbr />t</a>* stack,
+              size_t element_size)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="a7657459adc37bd4ad0cc72334bb60aa0">
+              <span class="m-doc-wrap-bumper">#define <a href="#a7657459adc37bd4ad0cc72334bb60aa0" class="m-doc-self">CC_STACK_INITIAL_CAPACITY</a></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac4910661965af062af1e2219fa0b31d2">
+              <span class="m-doc-wrap-bumper">#define <a href="#ac4910661965af062af1e2219fa0b31d2" class="m-doc-self">CC_STACK_IMPLEMENTATION</a></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
       </div>
     </div>
   </div>
