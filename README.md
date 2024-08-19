@@ -16,59 +16,59 @@ CContainer is a comprehensive STB style header-only library of data structures i
     - Dynamic resizing
     - Random access
     - Efficient indexing
-    - Functions: Initialization, Insertion, Deletion, Access, Resizing, Cleanup- 
+    - Functions: Initialization, Insertion, Deletion, Access, Resizing, Cleanup-
 - Linked List
     - Dynamic size
     - Efficient insertions/deletions at both ends
     - Sequential access
-    - Functions: Initialization, Insertion, Deletion, Access, Cleanup- 
+    - Functions: Initialization, Insertion, Deletion, Access, Cleanup-
 - Doubly Linked List
     - Dynamic size
     - Efficient insertions/deletions at both ends
     - Bidirectional sequential access
-    - Functions: Initialization, Insertion, Deletion, Access, Cleanup- 
+    - Functions: Initialization, Insertion, Deletion, Access, Cleanup-
 - Stack
     - LIFO (Last In, First Out) access
-    - Functions: Initialization, Push, Pop, Peek, Cleanup- 
+    - Functions: Initialization, Push, Pop, Peek, Cleanup-
 - Queue
     - FIFO (First In, First Out) access
-    - Functions: Initialization, Enqueue, Dequeue, Peek, Cleanup- 
+    - Functions: Initialization, Enqueue, Dequeue, Peek, Cleanup-
 - Hash Map
     - Key-value pair storage
     - Efficient lookups, insertions, and deletions
-    - Functions: Initialization, Insert, Remove, Get, Cleanup- 
+    - Functions: Initialization, Insert, Remove, Get, Cleanup-
 - Set
     - Unique element storage
     - Efficient membership testing, insertion, and deletion
-    - Functions: Initialization, Insert, Remove, Contains, Cleanup- 
+    - Functions: Initialization, Insert, Remove, Contains, Cleanup-
 - Binary Search Tree (BST)
     - Ordered elements
     - Efficient insertions, deletions, and lookups
-    - Functions: Initialization, Insertion, Deletion, Search, Traversal, Cleanup- 
+    - Functions: Initialization, Insertion, Deletion, Search, Traversal, Cleanup-
 - Red-Black Tree
     - Self-balancing BST
     - Ensures balanced height for efficient operations
-    - Functions: Initialization, Insertion, Deletion, Search, Traversal, Cleanup- 
+    - Functions: Initialization, Insertion, Deletion, Search, Traversal, Cleanup-
 - Heap (Priority Queue)
     - Efficient retrieval of the maximum or minimum element
     - Supports both max-heap and min-heap configurations
-    - Functions: Initialization, Insertion, Deletion, Peek, Cleanup- 
+    - Functions: Initialization, Insertion, Deletion, Peek, Cleanup-
 - Graph
     - Nodes and edges
     - Supports directed and undirected graphs
-    - Functions: Initialization, Add node, Add edge, Remove node, Remove edge, Traversal, Cleanup- 
+    - Functions: Initialization, Add node, Add edge, Remove node, Remove edge, Traversal, Cleanup-
 - Trie (Prefix Tree)
     - Efficient prefix-based search
     - Useful for implementing dictionaries and autocomplete
-    - Functions: Initialization, Insertion, Deletion, Search, Cleanup- 
+    - Functions: Initialization, Insertion, Deletion, Search, Cleanup-
 - Bloom Filter
     - Probabilistic data structure for set membership testing
     - Space-efficient
-    - Functions: Initialization, Add, Query, Cleanup- 
+    - Functions: Initialization, Add, Query, Cleanup-
 - B-Tree
     - Balanced tree for efficient disk storage operations
     - Used in databases and filesystems
-    - Functions: Initialization, Insertion, Deletion, Search, Traversal, Cleanup- 
+    - Functions: Initialization, Insertion, Deletion, Search, Traversal, Cleanup-
 
 ## Building and installing
 
@@ -81,6 +81,15 @@ See the [CONTRIBUTING](CONTRIBUTING.md) document.
 ## Development Status
 
 You can check and inform development and implementation status of containers from [DEVELOPMENT](DEVELOPMENT.md) document.
+
+## Dependencies
+
+By philosophy like many others of my libraries ccontainer does not depend any other third party libraries.
+So you can directly clone/install ccontainer and start to use it.
+
+But if you want to run the unit tests from the /test directory, we are using [Unity](https://github.com/ThrowTheSwitch/Unity)
+as our unit testing library. And initially we are using [conan](https://conan.io/) to download and use our dependencies
+but you can use anything (installing Unity directly) you want.
 
 ## Unit Test Coverage Graph Per File
 ![graph](https://codecov.io/gh/lvntky/ccontainer/graphs/tree.svg?token=0aUe4T51Su)
