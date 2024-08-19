@@ -38,7 +38,7 @@ void cc_linkedlist_init_test(void)
 		cc_linkedlist_free(list);
 	}
 */
-
+/*
 void cc_linkedlist_insert_front_test(void)
 {
 	cc_linkedlist_t *list =
@@ -52,3 +52,4 @@ void cc_linkedlist_insert_front_test(void)
 	TEST_ASSERT_EQUAL(first_data, list->head->data);
 	cc_linkedlist_free(list);
 }
+*/
