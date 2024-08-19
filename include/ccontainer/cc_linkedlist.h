@@ -35,7 +35,7 @@ extern "C" {
 #include <stdlib.h> // for malloc
 #include <string.h> // for memcpy
 #include <stdio.h> // for snprintf
-
+#include <pthread.h> // for mutex
 // =====================================================================
 //                          Configuration Macros
 // =====================================================================
@@ -63,6 +63,8 @@ typedef struct cc_linkedlist_node {
 
 typedef struct cc_linkedlist {
 	cc_linkedlist_node_t *head;
+        cc_linkedlist_node_t *tail;
+	pthread_mutex_t _lock;
 	size_t size;
 } cc_linkedlist_t;
 
@@ -81,16 +83,16 @@ int compare(void *a, void *b, size_t size)
 
 /**
  * @brief create single node for linked list
- * 
+ *
  * @param data to push to the linked list
- * @param data_size size of the data for allocating memory for it
- * @return cc_linkedlist_node_t* 
+ * @param danta_size size of the data for allocating memory for it
+ * @return cc_linkedlist_node_t*
  */
 cc_linkedlist_node_t *cc_linkedlist_node_create(void *data, size_t data_size);
 
 /**
  * @brief initialize an empty list
- * 
+ *
  * @param list list that head node points to NULL
  * @param data_size given by user
  */
@@ -98,7 +100,7 @@ void cc_linkedlist_init(cc_linkedlist_t *list, size_t data_size);
 
 /**
  * @brief gets the current size of linked list
- * 
+ *
  * @param head to point specified linked list
  * @return size_t number of nodes
  */
@@ -106,7 +108,7 @@ size_t cc_linkedlist_size(cc_linkedlist_node_t *head);
 
 /**
  * @brief insert data beggining of the list
- * 
+ *
  * @param list list that data will be instered
  * @param data data that will be insert
  */
@@ -114,7 +116,7 @@ void cc_linkedlist_insert_front(cc_linkedlist_t *list, void *data);
 
 /**
  * @brief insert data end of the list
- * 
+ *
  * @param list list that data will be instered
  * @param data data that will be insert
  */
@@ -122,27 +124,27 @@ void cc_linkedlist_insert_back(cc_linkedlist_t *list, void *data);
 
 /**
  * @brief delete the first node with given data
- * 
- * @param list 
- * @param data 
- * @param cmp 
+ *
+ * @param list
+ * @param data
+ * @param cmp
  */
 void cc_linkedlist_node_delete(cc_linkedlist_t *list, void *data);
 
 /**
  * @brief search node with given data
- * 
- * @param list 
- * @param data 
- * @param cmp 
- * @return cc_linkedlist_node_t* node that contains requested data 
+ *
+ * @param list
+ * @param data
+ * @param cmp
+ * @return cc_linkedlist_node_t* node that contains requested data
  */
 cc_linkedlist_node_t *cc_linkedlist_node_search(cc_linkedlist_t *list,
 						void *data);
 
 /**
  * @brief delete the entire list from heap
- * 
+ *
  * @param list to delete
  */
 void cc_linkedlist_free(cc_linkedlist_t *list);
